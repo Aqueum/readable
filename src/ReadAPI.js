@@ -13,8 +13,13 @@ const headers = {
   Authorization: token
 };
 
-export const get = postId =>
-  fetch(`${api}/posts/${postId}`, { headers })
+export const getCats = () =>
+  fetch(`${api}/categories`, { headers })
+    .then(res => res.json())
+    .then(data => data.categories);
+
+export const getCatPosts = category =>
+  fetch(`${api}/${category}/posts`, { headers })
     .then(res => res.json())
     .then(data => data);
 
@@ -23,10 +28,10 @@ export const getPosts = () =>
     .then(res => res.json())
     .then(data => data);
 
-export const getCats = () =>
-  fetch(`${api}/categories`, { headers })
+export const get = postId =>
+  fetch(`${api}/posts/${postId}`, { headers })
     .then(res => res.json())
-    .then(data => data.categories);
+    .then(data => data);
 
 export const update = (post, shelf) =>
   fetch(`${api}/posts/${post.id}`, {

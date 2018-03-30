@@ -6,8 +6,8 @@ import * as ReadAPI from './ReadAPI';
 class App extends Component {
   state = {
     //categories: [],
-    //posts: []
-    post: []
+    posts: []
+    //post: []
   };
 
   componentDidMount() {
@@ -15,19 +15,23 @@ class App extends Component {
       this.setState({ categories });
     });*/
 
+    ReadAPI.getCatPosts('redux').then(posts => {
+      this.setState({ posts });
+    });
+
     /*ReadAPI.getPosts().then(posts => {
       this.setState({ posts });
     });*/
 
-    ReadAPI.get('8xf0y6ziyjabvozdd253nd').then(post => {
+    /*ReadAPI.get('8xf0y6ziyjabvozdd253nd').then(post => {
       this.setState({ post });
-    });
+    });*/
   }
 
   render() {
     //console.log(this.state.categories);
-    //console.log(this.state.posts);
-    console.log(this.state.post);
+    console.log(this.state.posts);
+    //console.log(this.state.post);
     return (
       <div className="App">
         <header className="App-header">
