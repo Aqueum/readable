@@ -15,13 +15,30 @@ class App extends Component {
       this.setState({ categories });
     });*/
 
-    ReadAPI.getCatPosts('redux').then(posts => {
+    /*ReadAPI.getCatPosts('redux').then(posts => {
       this.setState({ posts });
-    });
+    });*/
 
     /*ReadAPI.getPosts().then(posts => {
       this.setState({ posts });
     });*/
+
+    var obj = {
+      id: 'TestID004',
+      timestamp: 1467166872738,
+      title: 'the Second test',
+      body: 'What fun, what fun we had',
+      author: 'Mwa',
+      category: 'redux'
+    };
+    console.log(obj);
+    ReadAPI.addPost(obj).then(posts => {
+      this.setState({ posts });
+    });
+
+    ReadAPI.getPosts().then(posts => {
+      this.setState({ posts });
+    });
 
     /*ReadAPI.get('8xf0y6ziyjabvozdd253nd').then(post => {
       this.setState({ post });
