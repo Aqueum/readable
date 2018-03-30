@@ -1,5 +1,5 @@
 // modified from MyReads/src/BooksAPI.js
-const api = 'localhost:3001';
+const api = 'http://localhost:3001';
 
 // Generate a unique token for storing data on the backend server.
 let token = localStorage.token;
@@ -22,6 +22,11 @@ export const getAll = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
     .then(data => data.posts);
+
+export const getCats = () =>
+  fetch(`${api}/categories`, { headers })
+    .then(res => res.json())
+    .then(data => data.categories);
 
 export const update = (post, shelf) =>
   fetch(`${api}/posts/${post.id}`, {
