@@ -16,12 +16,12 @@ const headers = {
 export const get = postId =>
   fetch(`${api}/posts/${postId}`, { headers })
     .then(res => res.json())
-    .then(data => data.post);
+    .then(data => data);
 
-export const getAll = () =>
+export const getPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.posts);
+    .then(data => data);
 
 export const getCats = () =>
   fetch(`${api}/categories`, { headers })
