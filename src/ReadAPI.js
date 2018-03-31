@@ -202,6 +202,17 @@ POST /comments/:id
   PARAMS:
     option - String: Either "upVote" or "downVote"
 */
+export const voteComment = (id, vote) =>
+  fetch(`${api}/comments/${id}`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ option: vote })
+  })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
 PUT /comments/:id

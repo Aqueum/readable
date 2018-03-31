@@ -77,6 +77,7 @@ class App extends Component {
     });
     */
 
+    /*
     ReadAPI.addComment(
       'TestComment001',
       1467166873934,
@@ -86,12 +87,17 @@ class App extends Component {
     ).then(comments => {
       this.setState({ comments });
     });
+    */
 
     /*
     ReadAPI.getComment('8tu4bsun805n8un48ve89').then(comments => {
       this.setState({ comments });
     });
     */
+
+    ReadAPI.voteComment('8tu4bsun805n8un48ve89', 'upVote').then(comments => {
+      this.setState({ comments });
+    });
   }
 
   render() {
@@ -99,7 +105,6 @@ class App extends Component {
     //console.log(this.state.categories);
     //console.log(this.state.posts);
     console.log(this.state.comments);
-    //
     return (
       <div className="App">
         <header className="App-header">
