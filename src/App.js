@@ -17,19 +17,16 @@ class App extends Component {
       this.setState({ categories });
     });
     */
-
     /*
     ReadAPI.getCatPosts('redux').then(posts => {
       this.setState({ posts });
     });
     */
-
     /*
     ReadAPI.getPosts().then(posts => {
       this.setState({ posts });
     });
     */
-
     /*
     ReadAPI.addPost(
       'testID01',
@@ -42,19 +39,16 @@ class App extends Component {
       this.setState({ posts });
     });
     */
-
     /*
     ReadAPI.getPost('8xf0y6ziyjabvozdd253nd').then(post => {
       this.setState({ post });
     });
     */
-
     /*
     ReadAPI.votePost('8xf0y6ziyjabvozdd253nd', 'upVote').then(post => {
       this.setState({ post });
     });
     */
-
     /*
     ReadAPI.editPost(
       '8xf0y6ziyjabvozdd253nd',
@@ -64,19 +58,16 @@ class App extends Component {
       this.setState({ post });
     });
     */
-
     /*
     ReadAPI.delPost('8xf0y6ziyjabvozdd253nd').then(post => {
       this.setState({ post });
     });
     */
-
     /*
     ReadAPI.getPostComments('8xf0y6ziyjabvozdd253nd').then(comments => {
       this.setState({ comments });
     });
     */
-
     /*
     ReadAPI.addComment(
       'TestComment001',
@@ -88,19 +79,16 @@ class App extends Component {
       this.setState({ comments });
     });
     */
-
     /*
     ReadAPI.getComment('8tu4bsun805n8un48ve89').then(comments => {
       this.setState({ comments });
     });
     */
-
     /*
     ReadAPI.voteComment('8tu4bsun805n8un48ve89', 'upVote').then(comments => {
       this.setState({ comments });
     });
     */
-
     /*
     ReadAPI.editComment(
       '8tu4bsun805n8un48ve89',
@@ -110,17 +98,18 @@ class App extends Component {
       this.setState({ comments });
     });
     */
-
+    /*
     ReadAPI.delComment('8tu4bsun805n8un48ve89').then(comments => {
       this.setState({ comments });
     });
+    */
   }
 
   render() {
     //console.log(this.state.post);
     //console.log(this.state.categories);
     //console.log(this.state.posts);
-    console.log(this.state.comments);
+    //console.log(this.state.comments);
     return (
       <div className="App">
         <header className="App-header">
