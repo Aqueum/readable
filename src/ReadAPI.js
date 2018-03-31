@@ -223,6 +223,20 @@ PUT /comments/:id
     timestamp: timestamp. Get this however you want.
     body: String
 */
+export const editComment = (id, timestamp, body) =>
+  fetch(`${api}/comments/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      timestamp: timestamp,
+      body: body
+    })
+  })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
 DELETE /comments/:id

@@ -95,7 +95,17 @@ class App extends Component {
     });
     */
 
+    /*
     ReadAPI.voteComment('8tu4bsun805n8un48ve89', 'upVote').then(comments => {
+      this.setState({ comments });
+    });
+    */
+
+    ReadAPI.editComment(
+      '8tu4bsun805n8un48ve89',
+      1467166874934,
+      'edited comment'
+    ).then(comments => {
       this.setState({ comments });
     });
   }
