@@ -14,14 +14,13 @@ class App extends Component {
     /*ReadAPI.getCats().then(categories => {
       this.setState({ categories });
     });*/
-
     /*ReadAPI.getCatPosts('redux').then(posts => {
       this.setState({ posts });
     });*/
-
     /*ReadAPI.getPosts().then(posts => {
       this.setState({ posts });
     });*/
+    /* DOESN'T YET WORK
 
     var obj = {
       id: 'TestID004',
@@ -40,6 +39,7 @@ class App extends Component {
       this.setState({ posts });
     });
 
+    */
     /*ReadAPI.get('8xf0y6ziyjabvozdd253nd').then(post => {
       this.setState({ post });
     });*/
@@ -47,7 +47,7 @@ class App extends Component {
 
   render() {
     //console.log(this.state.categories);
-    console.log(this.state.posts);
+    //console.log(this.state.posts);
     //console.log(this.state.post);
     return (
       <div className="App">
