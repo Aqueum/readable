@@ -167,6 +167,23 @@ POST /comments
     author: String
     parentId: Should match a post id in the database.
 */
+export const addComment = (id, timestamp, body, author, parentId) =>
+  fetch(`${api}/comments`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: id,
+      timestamp: timestamp,
+      body: body,
+      author: author,
+      parentID: parentId
+    })
+  })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
 GET /comments/:id

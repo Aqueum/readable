@@ -7,8 +7,8 @@ class App extends Component {
   state = {
     //categories: [],
     //posts: []
-    post: []
-    //comments: []
+    //post: []
+    comments: []
   };
 
   componentDidMount() {
@@ -55,6 +55,7 @@ class App extends Component {
     });
     */
 
+    /*
     ReadAPI.editPost(
       '8xf0y6ziyjabvozdd253nd',
       'New Title',
@@ -62,6 +63,7 @@ class App extends Component {
     ).then(post => {
       this.setState({ post });
     });
+    */
 
     /*
     ReadAPI.delPost('8xf0y6ziyjabvozdd253nd').then(post => {
@@ -75,6 +77,16 @@ class App extends Component {
     });
     */
 
+    ReadAPI.addComment(
+      'TestComment001',
+      1467166873934,
+      'I think this is a comment',
+      'commentor',
+      '8xf0y6ziyjabvozdd253nd'
+    ).then(comments => {
+      this.setState({ comments });
+    });
+
     /*
     ReadAPI.getComment('8tu4bsun805n8un48ve89').then(comments => {
       this.setState({ comments });
@@ -83,10 +95,10 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.post);
+    //console.log(this.state.post);
     //console.log(this.state.categories);
     //console.log(this.state.posts);
-    //console.log(this.state.comments);
+    console.log(this.state.comments);
     //
     return (
       <div className="App">
