@@ -55,12 +55,7 @@ POST /posts
     body - String
     author - String
     category: Any of the categories listed in categories.js. Feel free to extend this list as you desire.
-
-****************
-DOESN'T YET WORK
-****************
-
-    */
+*/
 export const addPost = (id, timestamp, title, body, author, category) =>
   fetch(`${api}/posts`, {
     method: 'POST',
