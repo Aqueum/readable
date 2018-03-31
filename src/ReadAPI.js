@@ -113,6 +113,20 @@ PUT /posts/:id
     title - String
     body - String
 */
+export const editPost = (id, title, body) =>
+  fetch(`${api}/posts/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      title: title,
+      body: body
+    })
+  })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
 DELETE /posts/:id

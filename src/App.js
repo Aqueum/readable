@@ -6,8 +6,8 @@ import * as ReadAPI from './ReadAPI';
 class App extends Component {
   state = {
     //categories: [],
-    posts: []
-    //post: []
+    //posts: []
+    post: []
     //comments: []
   };
 
@@ -24,9 +24,11 @@ class App extends Component {
     });
     */
 
+    /*
     ReadAPI.getPosts().then(posts => {
       this.setState({ posts });
     });
+    */
 
     /*
     ReadAPI.addPost(
@@ -53,6 +55,14 @@ class App extends Component {
     });
     */
 
+    ReadAPI.editPost(
+      '8xf0y6ziyjabvozdd253nd',
+      'New Title',
+      'Body body body'
+    ).then(post => {
+      this.setState({ post });
+    });
+
     /*
     ReadAPI.delPost('8xf0y6ziyjabvozdd253nd').then(post => {
       this.setState({ post });
@@ -73,9 +83,9 @@ class App extends Component {
   }
 
   render() {
-    //console.log(this.state.post);
+    console.log(this.state.post);
     //console.log(this.state.categories);
-    console.log(this.state.posts);
+    //console.log(this.state.posts);
     //console.log(this.state.comments);
     //
     return (
