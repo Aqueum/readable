@@ -61,14 +61,21 @@ DOESN'T YET WORK
 ****************
 
     */
-export const addPost = obj =>
+export const addPost = (id, timestamp, title, body, author, category) =>
   fetch(`${api}/posts`, {
     method: 'POST',
     headers: {
       ...headers,
       'Content-Type': 'application/json'
     },
-    body: obj
+    body: JSON.stringify({
+      id: id,
+      timestamp: timestamp,
+      title: title,
+      body: body,
+      author: author,
+      category: category
+    })
   })
     .then(res => res.json())
     .then(data => data);
@@ -89,11 +96,6 @@ POST /posts/:id
     Used for voting on a post
   PARAMS:
     option - String: Either "upVote" or "downVote"
-
-****************
-DOESN'T YET WORK
-****************
-
 */
 export const votePost = (postId, vote) =>
   fetch(`${api}/posts/${postId}`, {

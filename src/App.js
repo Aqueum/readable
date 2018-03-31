@@ -6,9 +6,9 @@ import * as ReadAPI from './ReadAPI';
 class App extends Component {
   state = {
     //categories: [],
+    posts: []
     //post: []
-    //post: []
-    comments: []
+    //comments: []
   };
 
   componentDidMount() {
@@ -24,28 +24,19 @@ class App extends Component {
     });
     */
 
+    ReadAPI.getPosts().then(posts => {
+      this.setState({ posts });
+    });
+
     /*
-    ReadAPI.getPosts().then(posts => {
-      this.setState({ posts });
-    });
-    */
-
-    /* DOESN'T YET WORK
-
-    var obj = {
-      id: 'TestID004',
-      timestamp: 1467166872738,
-      title: 'the Second test',
-      body: 'What fun, what fun we had',
-      author: 'Mwa',
-      category: 'redux'
-    };
-    console.log(obj);
-    ReadAPI.addPost(obj).then(posts => {
-      this.setState({ posts });
-    });
-
-    ReadAPI.getPosts().then(posts => {
+    ReadAPI.addPost(
+      'testID01',
+      1467166872934,
+      'Udacity self help',
+      'We pay and we do',
+      'Writer',
+      'udacity'
+    ).then(posts => {
       this.setState({ posts });
     });
     */
@@ -56,9 +47,11 @@ class App extends Component {
     });
     */
 
+    /*
     ReadAPI.votePost('8xf0y6ziyjabvozdd253nd', 'upVote').then(post => {
       this.setState({ post });
     });
+    */
 
     /*
     ReadAPI.delPost('8xf0y6ziyjabvozdd253nd').then(post => {
@@ -80,9 +73,9 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.post);
+    //console.log(this.state.post);
     //console.log(this.state.categories);
-    //console.log(this.state.posts);
+    console.log(this.state.posts);
     //console.log(this.state.comments);
     //
     return (
