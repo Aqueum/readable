@@ -6,9 +6,9 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 ReactDOM.render(
-  <Provider store={createStore(App)}>
-    <App />
-  </Provider>,
+  //<Provider store={createStore(App)}>
+  <App />,
+  //</Provider>,
   document.getElementById('root')
 );
 registerServiceWorker();
