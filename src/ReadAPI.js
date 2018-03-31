@@ -150,7 +150,7 @@ GET /posts/:id/comments
   USAGE:
     Get all the comments for a single post
 */
-export const postComments = id =>
+export const getPostComments = id =>
   fetch(`${api}/posts/${id}/comments`, { headers })
     .then(res => res.json())
     .then(data => data);

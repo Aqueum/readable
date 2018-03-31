@@ -72,7 +72,7 @@ class App extends Component {
     */
 
     /*
-    ReadAPI.postComments('8xf0y6ziyjabvozdd253nd').then(comments => {
+    ReadAPI.getPostComments('8xf0y6ziyjabvozdd253nd').then(comments => {
       this.setState({ comments });
     });
     */
