@@ -109,7 +109,11 @@ class App extends Component {
     //console.log(this.state.categories);
     //console.log(this.state.posts);
     //console.log(this.state.comments);
-    return <div />;
+    return (
+      <div>
+        <h1>Placeholder</h1>
+      </div>
+    );
   }
 }
 
