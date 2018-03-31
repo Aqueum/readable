@@ -56,7 +56,9 @@ POST /posts
     author - String
     category: Any of the categories listed in categories.js. Feel free to extend this list as you desire.
 
-DOESN'T YEY WORK
+****************
+DOESN'T YET WORK
+****************
 
     */
 export const addPost = obj =>
@@ -87,9 +89,26 @@ POST /posts/:id
     Used for voting on a post
   PARAMS:
     option - String: Either "upVote" or "downVote"
+
+****************
+DOESN'T YET WORK
+****************
+
 */
+export const votePost = (postId, vote) =>
+  fetch(`${api}/posts/${postId}`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ option: vote })
+  })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
+
 PUT /posts/:id
   USAGE:
     Edit the details of an existing post
@@ -104,12 +123,26 @@ DELETE /posts/:id
     Sets the deleted flag for a post to 'true'.
     Sets the parentDeleted flag for all child comments to 'true'.
 */
+export const delPost = postId =>
+  fetch(`${api}/posts/${postId}`, {
+    method: 'DELETE',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
 GET /posts/:id/comments
   USAGE:
     Get all the comments for a single post
 */
+export const postComments = id =>
+  fetch(`${api}/posts/${id}/comments`, { headers })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
 POST /comments
@@ -129,6 +162,10 @@ GET /comments/:id
   USAGE:
     Get the details for a single comment
 */
+export const getComment = id =>
+  fetch(`${api}/comments/${id}`, { headers })
+    .then(res => res.json())
+    .then(data => data);
 
 /*
 POST /comments/:id
