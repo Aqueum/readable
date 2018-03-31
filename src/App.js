@@ -101,11 +101,17 @@ class App extends Component {
     });
     */
 
+    /*
     ReadAPI.editComment(
       '8tu4bsun805n8un48ve89',
       1467166874934,
       'edited comment'
     ).then(comments => {
+      this.setState({ comments });
+    });
+    */
+
+    ReadAPI.delComment('8tu4bsun805n8un48ve89').then(comments => {
       this.setState({ comments });
     });
   }

@@ -1,4 +1,4 @@
-// modified from MyReads/src/BooksAPI.js
+// modified from MyReads/src/BooksAPI.js :  https://github.com/Aqueum/MyReads/blob/master/src/BooksAPI.js
 const api = 'http://localhost:3001';
 
 // Generate a unique token for storing data on the backend server.
@@ -55,6 +55,7 @@ POST /posts
     body - String
     author - String
     category: Any of the categories listed in categories.js. Feel free to extend this list as you desire.
+hint from: https://udacity-react.slack.com/archives/C6HMLBTQB/p1508823362000167
 */
 export const addPost = (id, timestamp, title, body, author, category) =>
   fetch(`${api}/posts`, {
@@ -243,26 +244,13 @@ DELETE /comments/:id
   USAGE:
     Sets a comment's deleted flag to 'true'
 */
-
-/* unused originals */
-export const update = (post, shelf) =>
-  fetch(`${api}/posts/${post.id}`, {
-    method: 'PUT',
+export const delComment = id =>
+  fetch(`${api}/comments/${id}`, {
+    method: 'DELETE',
     headers: {
       ...headers,
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ shelf })
-  }).then(res => res.json());
-
-export const search = query =>
-  fetch(`${api}/search`, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ query })
+    }
   })
     .then(res => res.json())
-    .then(data => data.posts);
+    .then(data => data);
