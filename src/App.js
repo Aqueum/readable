@@ -44,7 +44,7 @@ class App extends Component {
     */
 
     /*
-    ReadAPI.get('8xf0y6ziyjabvozdd253nd').then(post => {
+    ReadAPI.getPost('8xf0y6ziyjabvozdd253nd').then(post => {
       this.setState({ post });
     });
     */

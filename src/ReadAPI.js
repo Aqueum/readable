@@ -80,7 +80,7 @@ GET /posts/:id
   USAGE:
     Get the details of a single post
 */
-export const get = postId =>
+export const getPost = postId =>
   fetch(`${api}/posts/${postId}`, { headers })
     .then(res => res.json())
     .then(data => data);
