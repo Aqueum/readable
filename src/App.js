@@ -4,18 +4,17 @@ import * as ReadAPI from './ReadAPI';
 
 class App extends Component {
   state = {
-    //categories: [],
+    categories: []
     //posts: []
     //post: []
-    comments: []
+    //comments: []
   };
 
   componentDidMount() {
-    /*
     ReadAPI.getCats().then(categories => {
       this.setState({ categories });
     });
-    */
+
     /*
     ReadAPI.getCatPosts('redux').then(posts => {
       this.setState({ posts });
@@ -105,13 +104,15 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.categories);
     //console.log(this.state.post);
-    //console.log(this.state.categories);
     //console.log(this.state.posts);
     //console.log(this.state.comments);
     return (
       <div>
-        <h1>Placeholder</h1>
+        {this.state.categories.map(cat => (
+          <span key={cat.name}> {cat.name} </span>
+        ))}
       </div>
     );
   }
