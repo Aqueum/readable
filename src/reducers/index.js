@@ -90,7 +90,7 @@ function posts(
   }
 }
 
-/* decided not to segregate state by category, to void duplicate posts in state
+/* decided not to segregate state by category, to avoid duplicate posts in state
 when called with & without category.
 function postsByCategory(state = {}, action) {
   switch (action.type) {
