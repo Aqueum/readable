@@ -73,6 +73,18 @@ function posts(
         items: action.posts,
         lastUpdated: action.receivedAt
       });
+    case REQUEST_ADD_POST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case RECEIVE_ADD_POST:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        items: action.posts,
+        lastUpdated: action.receivedAt
+      });
     default:
       return state;
   }
@@ -94,34 +106,10 @@ function postsByCategory(state = {}, action) {
 }
 */
 
-function addPost(
-  state = {
-    isFetching: false,
-    items: []
-  },
-  action
-) {
-  switch (action.type) {
-    case REQUEST_ADD_POST:
-      return Object.assign({}, state, {
-        isFetching: true
-      });
-    case RECEIVE_ADD_POST:
-      return Object.assign({}, state, {
-        isFetching: false,
-        items: action.post,
-        lastUpdated: action.receivedAt
-      });
-    default:
-      return state;
-  }
-}
-
 const rootReducer = combineReducers({
   categories,
   selectedCategory,
-  posts,
-  addPost
+  posts
 });
 
 export default rootReducer;
