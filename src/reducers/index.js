@@ -6,18 +6,4 @@ import {
   RECEIVE_POSTS
 } from '../actions';
 
-const categories = (state = {}, action) => {
-  switch (action.type) {
-    case 'GET_CATEGORIES':
-      return {
-        name: action.name,
-        path: action.path
-      };
-    default:
-      return state;
-  }
-};
-
-export default combineReducers({
-  categories
-});
+export default
