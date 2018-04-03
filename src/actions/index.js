@@ -1,3 +1,5 @@
+// modified from https://redux.js.org/advanced/async-actions
+
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 export function selectCategoty(category) {
   return {
