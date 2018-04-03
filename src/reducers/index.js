@@ -2,6 +2,9 @@
 
 import { combineReducers } from 'redux';
 import {
+  INVALIDATE_CATEGORIES,
+  REQUEST_CATEGORIES,
+  RECEIVE_CATEGORIES,
   SELECT_CATEGORY,
   INVALIDATE_CATEGORY,
   REQUEST_POSTS,
@@ -12,6 +15,34 @@ function selectedCategory(state = '', action) {
   switch (action.type) {
     case SELECT_CATEGORY:
       return action.category;
+    default:
+      return state;
+  }
+}
+
+function categories(
+  state = {
+    isFetching: false,
+    didInvalidate: false,
+    items: []
+  },
+  action
+) {
+  switch (action.type) {
+    case INVALIDATE_CATEGORIES:
+      return Object.assign({}, state, { didInvalidate: true });
+    case REQUEST_CATEGORIES:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case RECEIVE_CATEGORIES:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        items: action.categories,
+        lastUpdated: action.receivedAt
+      });
     default:
       return state;
   }
