@@ -30,7 +30,7 @@ function receivePosts(category, json) {
   return {
     type: RECEIVE_POSTS,
     category,
-    posts: json.data.children.map(child => child.data),
+    posts: json, //was json.data.children.map(child => child.data)
     receivedAt: Date.now()
   };
 }
