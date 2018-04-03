@@ -154,7 +154,7 @@ hint from: https://udacity-react.slack.com/archives/C6HMLBTQB/p1508823362000167
 */
 export function addPost(id, timestamp, title, body, author, category) {
   return function(dispatch) {
-    dispatch(requestAddPost());
+    dispatch(requestAddPost(id, timestamp, title, body, author, category));
     return fetch(`${api}/posts`, {
       method: 'POST',
       headers: {
