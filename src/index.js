@@ -5,12 +5,8 @@ import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 // import App from './App';
 //import registerServiceWorker from './registerServiceWorker';
-import {
-  selectCategory,
-  fetchCategories,
-  fetchPosts,
-  addPost
-} from './actions';
+import { fetchPosts, addPost } from './actions/Posts';
+import { selectCategory, fetchCategories } from './actions/Categories';
 import rootReducer from './reducers';
 //import { Provider } from 'react-redux';
 

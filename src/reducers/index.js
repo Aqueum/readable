@@ -6,12 +6,14 @@ import {
   REQUEST_CATEGORIES,
   RECEIVE_CATEGORIES,
   SELECT_CATEGORY,
-  INVALIDATE_CATEGORY,
+  INVALIDATE_CATEGORY
+} from '../actions/Categories';
+import {
   REQUEST_POSTS,
   RECEIVE_POSTS,
   REQUEST_ADD_POST,
   RECEIVE_ADD_POST
-} from '../actions';
+} from '../actions/Posts';
 
 function selectedCategory(state = '', action) {
   switch (action.type) {
