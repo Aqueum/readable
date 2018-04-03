@@ -5,7 +5,7 @@ import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 // import App from './App';
 //import registerServiceWorker from './registerServiceWorker';
-import { selectCategory, fetchPosts } from './actions';
+import { selectCategory, fetchCategories, fetchPosts } from './actions';
 import rootReducer from './reducers';
 //import { Provider } from 'react-redux';
 
@@ -19,6 +19,7 @@ const store = createStore(
 );
 
 store.dispatch(selectCategory('react'));
+store.dispatch(fetchCategories());
 store.dispatch(fetchPosts('react')).then(() => console.log(store.getState()));
 /* was:
 ReactDOM.render(
