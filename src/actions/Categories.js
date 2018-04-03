@@ -34,14 +34,6 @@ export function selectCategory(category) {
   };
 }
 
-export const INVALIDATE_CATEGORY = 'INVALIDATE_CATEGORY'; // refresh category
-export function invalidateCategory(category) {
-  return {
-    type: INVALIDATE_CATEGORY,
-    category
-  };
-}
-
 /*
 GET /categories
   USAGE:

@@ -43,6 +43,14 @@ function receiveAddPost(json) {
   };
 }
 
+export const INVALIDATE_CATEGORY = 'INVALIDATE_CATEGORY'; // refresh category
+export function invalidateCategory(category) {
+  return {
+    type: INVALIDATE_CATEGORY,
+    category
+  };
+}
+
 /*
 GET /posts
   USAGE:
