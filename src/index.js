@@ -24,11 +24,11 @@ store.dispatch(fetchCategories());
 store.dispatch(fetchPosts('')).then(() => console.log(store.getState()));
 store.dispatch(
   addPost(
-    'testID02',
+    'testID01',
     1467166873934,
-    'More self help',
-    'Is this working',
-    'Me',
+    'Hello',
+    'Is it me you are looking for',
+    'Anton',
     'udacity'
   )
 );
