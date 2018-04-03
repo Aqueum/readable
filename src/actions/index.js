@@ -60,7 +60,10 @@ GET /:category/posts
 export function fetchPosts(category) {
   return function(dispatch) {
     dispatch(requestPosts(category));
-    return fetch(`${api}/${category}/posts`, { headers })
+    return fetch(
+      category === '' ? `${api}/posts` : `${api}/${category}/posts`,
+      { headers }
+    )
       .then(
         response => response.json(),
         error => console.log('An error occurred.', error)
