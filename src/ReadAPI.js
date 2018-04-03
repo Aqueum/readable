@@ -13,7 +13,7 @@ const headers = {
   Authorization: token
 };
 
-/*
+/* /
 GET /categories
   USAGE:
     Get all of the categories available for the app. List is found in categories.js.
@@ -24,7 +24,7 @@ export const getCats = () =>
     .then(res => res.json())
     .then(data => data.categories);
 
-/*
+/* /
 GET /:category/posts
   USAGE:
     Get all of the posts for a particular category
@@ -34,7 +34,7 @@ export const getCatPosts = category =>
     .then(res => res.json())
     .then(data => data);
 
-/*
+/* /
 GET /posts
   USAGE:
     Get all of the posts. Useful for the main page when no category is selected.
@@ -43,6 +43,7 @@ export const getPosts = () =>
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
     .then(data => data);
+
 /*
 POST /posts
   USAGE:
