@@ -16,8 +16,8 @@ const store = createStore(
   applyMiddleware(thunkMiddleware, loggerMiddleware)
 );
 
-store.dispatch(selectCategory('reactjs'));
-store.dispatch(fetchPosts('reactjs')).then(() => console.log(store.getState()));
+store.dispatch(selectCategory('react'));
+store.dispatch(fetchPosts('react')).then(() => console.log(store.getState()));
 /* was:
 ReactDOM.render(
   //<Provider store={createStore(App)}>
