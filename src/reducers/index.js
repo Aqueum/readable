@@ -45,6 +45,8 @@ function posts(
   }
 }
 
+/* decided not to segregate state by category, to void duplicate posts in state
+when called with & without category.
 function postsByCategory(state = {}, action) {
   switch (action.type) {
     case INVALIDATE_CATEGORY:
@@ -57,9 +59,10 @@ function postsByCategory(state = {}, action) {
       return state;
   }
 }
+*/
 
 const rootReducer = combineReducers({
-  postsByCategory,
+  posts,
   selectedCategory
 });
 
