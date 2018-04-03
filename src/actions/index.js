@@ -53,6 +53,10 @@ export function invalidateCategory(category) {
 }
 
 /*
+GET /posts
+  USAGE:
+    Get all of the posts. Useful for the main page when no category is selected.
+
 GET /:category/posts
   USAGE:
     Get all of the posts for a particular category
