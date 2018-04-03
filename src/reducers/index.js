@@ -8,7 +8,9 @@ import {
   SELECT_CATEGORY,
   INVALIDATE_CATEGORY,
   REQUEST_POSTS,
-  RECEIVE_POSTS
+  RECEIVE_POSTS,
+  REQUEST_ADD_POST,
+  RECEIVE_ADD_POST
 } from '../actions';
 
 function selectedCategory(state = '', action) {
@@ -92,10 +94,34 @@ function postsByCategory(state = {}, action) {
 }
 */
 
+function addPost(
+  state = {
+    isFetching: false,
+    items: []
+  },
+  action
+) {
+  switch (action.type) {
+    case REQUEST_ADD_POST:
+      return Object.assign({}, state, {
+        isFetching: true
+      });
+    case RECEIVE_ADD_POST:
+      return Object.assign({}, state, {
+        isFetching: false,
+        items: action.post,
+        lastUpdated: action.receivedAt
+      });
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
-  posts,
   categories,
-  selectedCategory
+  selectedCategory,
+  posts,
+  addPost
 });
 
 export default rootReducer;
