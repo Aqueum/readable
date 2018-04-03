@@ -9,7 +9,8 @@ if (!token)
     .substr(-8);
 
 const headers = {
-  // 'Accept': 'application/json', //guessing this isn't needed
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
   Authorization: token
 };
 
@@ -157,10 +158,7 @@ export function addPost(id, timestamp, title, body, author, category) {
     dispatch(requestAddPost(id, timestamp, title, body, author, category));
     return fetch(`${api}/posts`, {
       method: 'POST',
-      headers: {
-        ...headers,
-        'Content-Type': 'application/json'
-      },
+      headers: headers,
       body: JSON.stringify({
         id: id,
         timestamp: timestamp,
