@@ -6,10 +6,11 @@ export function selectCategoty(category) {
   };
 }
 
-export const REFRESH_CATEGORY = 'REFRESH_CATEGORY';
-export function refreshCategory(category) {
+// refresh category:
+export const INVALIDATE_CATEGORY = 'INVALIDATE_CATEGORY';
+export function invalidateCategory(category) {
   return {
-    type: REFRESH_CATEGORY,
+    type: INVALIDATE_CATEGORY,
     category
   };
 }
