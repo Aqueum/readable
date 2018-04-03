@@ -36,7 +36,7 @@ function receivePosts(category, json) {
 }
 
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
-export function selectCategoty(category) {
+export function selectCategory(category) {
   return {
     type: SELECT_CATEGORY,
     category
