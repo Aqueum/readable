@@ -94,6 +94,7 @@ function postsByCategory(state = {}, action) {
 
 const rootReducer = combineReducers({
   posts,
+  categories,
   selectedCategory
 });
 
