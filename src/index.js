@@ -28,11 +28,11 @@ store.dispatch(fetchCategories());
 store.dispatch(fetchPosts('')).then(() => console.log(store.getState()));
 store.dispatch(
   addPost(
-    'testID01',
-    1467166872934,
-    'Udacity self help',
-    'We pay and we do',
-    'Writer',
+    'testID02',
+    1467166873934,
+    'More self help',
+    'Is this working',
+    'Me',
     'udacity'
   )
 );
