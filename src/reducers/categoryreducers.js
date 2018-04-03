@@ -5,7 +5,7 @@ import {
   REQUEST_CATEGORIES,
   RECEIVE_CATEGORIES,
   SELECT_CATEGORY
-} from '../actions/Categories';
+} from '../actions/categoryactions';
 
 export function selectedCategory(state = '', action) {
   switch (action.type) {
