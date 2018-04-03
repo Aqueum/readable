@@ -1,21 +1,6 @@
-// API stuff modified from MyReads/src/BooksAPI.js :  https://github.com/Aqueum/MyReads/blob/master/src/BooksAPI.js
-const api = 'http://localhost:3001';
-
-// Generate a unique token for storing data on the backend server.
-let token = localStorage.token;
-if (!token)
-  token = localStorage.token = Math.random()
-    .toString(36)
-    .substr(-8);
-
-const headers = {
-  Accept: 'application/json',
-  'Content-Type': 'application/json',
-  Authorization: token
-};
+import { api, headers } from '../utils/api.js';
 
 // action structure modified from https://redux.js.org/advanced/async-actions
-
 // import fetch from 'cross-fetch'; - presumed not neccesary
 
 export const REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
