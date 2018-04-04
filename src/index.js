@@ -3,7 +3,7 @@
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
-// import App from './App';
+// import App from '.components/App';
 //import registerServiceWorker from './registerServiceWorker';
 import { fetchPosts, addPost } from './actions/postactions';
 import { selectCategory, fetchCategories } from './actions/categoryactions';
@@ -21,7 +21,6 @@ const store = createStore(
 
 store.dispatch(selectCategory('react'));
 store.dispatch(fetchCategories());
-store.dispatch(fetchPosts('')).then(() => console.log(store.getState()));
 store.dispatch(
   addPost(
     'testID01',
