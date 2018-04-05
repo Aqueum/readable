@@ -6,7 +6,7 @@ import {
   REQUEST_ADD_POST,
   RECEIVE_ADD_POST,
   INVALIDATE_CATEGORY
-} from '../actions/postactions';
+} from '../actions/post';
 
 export function posts(
   state = {

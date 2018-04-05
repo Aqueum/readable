@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { categories, selectedCategory } from './categoryreducers';
-import { posts } from './postreducers';
+import { categories, selectedCategory } from './category';
+import { posts } from './post';
 
 const rootReducer = combineReducers({
   categories,
