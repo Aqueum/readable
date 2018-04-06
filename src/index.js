@@ -21,6 +21,7 @@ const store = createStore(
 
 store.dispatch(selectCategory('react'));
 store.dispatch(fetchCategories());
+store.dispatch(fetchPosts('react')).then(() => console.log(store.getState()));
 store.dispatch(
   addPost(
     'testID01',
