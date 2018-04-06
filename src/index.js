@@ -24,10 +24,10 @@ store.dispatch(fetchCategories());
 store.dispatch(fetchPosts('react')).then(() => console.log(store.getState()));
 store.dispatch(
   addPost(
-    'testID01',
-    1467166873934,
-    'Hello',
-    'Is it me you are looking for',
+    'testID02',
+    1467166873944,
+    'Lost?',
+    'Where did the redux post go?',
     'Anton',
     'udacity'
   )
