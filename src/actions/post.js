@@ -119,15 +119,21 @@ POST /posts/:id
   PARAMS:
     option - String: Either "upVote" or "downVote"
 */
-export function votePost(postId, vote) {
-  fetch(`${api}/posts/${postId}`, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ option: vote })
-  })
-    .then(res => res.json())
-    .then(data => data);
+export function votePost(id, vote) {
+  return function(dispatch) {
+    dispatch(requestVote(id, vote));
+    fetch(`${api}/posts/${id}`, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ option: vote })
+    })
+      .then(
+        response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => dispatch(receiveVote(json)));
+  };
 }
