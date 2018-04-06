@@ -64,8 +64,7 @@ export const RECEIVE_VOTE = 'RECEIVE_VOTE';
 export function receiveVote(json) {
   return {
     type: RECEIVE_VOTE,
-    post: json,
-    receivedAt: Date.now()
+    post: json
   };
 }
 
