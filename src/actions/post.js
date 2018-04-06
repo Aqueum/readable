@@ -119,7 +119,7 @@ POST /posts/:id
   PARAMS:
     option - String: Either "upVote" or "downVote"
 */
-export const votePost = (postId, vote) =>
+export function votePost(postId, vote) {
   fetch(`${api}/posts/${postId}`, {
     method: 'POST',
     headers: {
@@ -130,3 +130,4 @@ export const votePost = (postId, vote) =>
   })
     .then(res => res.json())
     .then(data => data);
+}
