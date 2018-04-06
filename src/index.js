@@ -5,8 +5,8 @@ import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import { fetchPosts, addPost } from './actions/post';
-import { selectCategory, fetchCategories } from './actions/category';
+//import { fetchPosts, addPost } from './actions/post';
+import { /*selectCategory,*/ fetchCategories } from './actions/category';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 
@@ -19,8 +19,8 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware))
 );
 
-store.dispatch(selectCategory('react'));
 store.dispatch(fetchCategories());
+/*store.dispatch(selectCategory('react'));
 store.dispatch(fetchPosts('')).then(() => console.log(store.getState()));
 store.dispatch(
   addPost(
@@ -32,6 +32,7 @@ store.dispatch(
     'udacity'
   )
 );
+*/
 
 ReactDOM.render(
   <Provider store={store}>
