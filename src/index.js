@@ -35,8 +35,9 @@ store.dispatch(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />,
+    <App />
   </Provider>,
   document.getElementById('root')
 );
 registerServiceWorker();
+ß;
