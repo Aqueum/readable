@@ -51,6 +51,24 @@ export function invalidateCategory(category) {
   };
 }
 
+export const REQUEST_VOTE = 'REQUEST_VOTE';
+export function requestVote(id, vote) {
+  return {
+    type: REQUEST_VOTE,
+    id,
+    vote
+  };
+}
+
+export const RECEIVE_VOTE = 'RECEIVE_VOTE';
+export function receiveVote(json) {
+  return {
+    type: RECEIVE_VOTE,
+    post: json,
+    receivedAt: Date.now()
+  };
+}
+
 /*
 GET /posts
   USAGE:
