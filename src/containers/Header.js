@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import ShowCats from '../components/Header/ShowCats';
-
-let fun = [{ name: 'Rod' }, { name: 'Jane' }, { name: 'Freddy' }];
+//import { fetchCategories } from '../actions/category';
 
 class Header extends Component {
   render() {
     return (
       <div>
-        <ShowCats cats={fun} />
+        <ShowCats cats={this.props.categories} />
       </div>
     );
   }
 }
 
-function mapStateToProps(state, categories = []) {
+Header.proptypes = {
+  categories: PropTypes.array.isReqired,
+  dispatch: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
   return {
-    categories: state.categories.items.categories
+    categories: state.categories.items.categories || []
   };
 }
 
