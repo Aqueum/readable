@@ -12,7 +12,7 @@ export default class ListPosts extends Component {
               <strong>{post.title}</strong> by {post.author}
               , {post.commentCount} comments, score = {post.voteScore}
               <button onClick={votePost(post.id, 'upVote')}>+</button>
-              <button onClick={votePost(post.id, 'upVote')}>-</button>
+              <button onClick={votePost(post.id, 'downVote')}>-</button>
               <button onClick={null}>edit</button>
               <button onClick={null}>delete</button>
             </li>
