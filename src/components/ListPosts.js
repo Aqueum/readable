@@ -23,5 +23,6 @@ export default class ListPosts extends Component {
 }
 
 ListPosts.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
+  upVote: PropTypes.func.isRequired
 };
