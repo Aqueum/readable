@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+class Header extends Component {
   render() {
     return <div>I'm a header</div>;
   }
 }
 
-export default App;
+export default Header;
