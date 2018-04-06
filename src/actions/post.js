@@ -62,6 +62,7 @@ export function requestVote(id, vote) {
 
 export const RECEIVE_VOTE = 'RECEIVE_VOTE';
 export function receiveVote(json) {
+  console.log(json);
   return {
     type: RECEIVE_VOTE,
     post: json
@@ -136,6 +137,21 @@ POST /posts/:id
   PARAMS:
     option - String: Either "upVote" or "downVote"
 */
+
+export const votePost = (id, vote) => dispatch => {
+  return fetch(`${api}/posts/${id}`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ option: vote })
+  })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => dispatch(receiveVote(json)));
+};
+
+/*
 export function votePost(id, vote) {
   return function(dispatch) {
     dispatch(requestVote(id, vote));
@@ -154,3 +170,4 @@ export function votePost(id, vote) {
       .then(json => dispatch(receiveVote(json)));
   };
 }
+*/
