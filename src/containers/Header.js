@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import ShowCats from '../components/Header/ShowCats';
-//import { fetchCategories } from '../actions/category';
+import { fetchCategories } from '../actions/category';
 
 class Header extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchCategories());
+  }
+
   render() {
     return (
       <div>

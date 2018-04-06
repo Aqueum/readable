@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 //import { fetchPosts, addPost } from './actions/post';
-import { /*selectCategory,*/ fetchCategories } from './actions/category';
+// import { /*selectCategory,*/ fetchCategories } from './actions/category';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 
@@ -19,7 +19,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware))
 );
 
-store.dispatch(fetchCategories());
+//store.dispatch(fetchCategories());
 
 /*store.dispatch(selectCategory('react'));
 store.dispatch(fetchCategories());
