@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import ShowPosts from '../components/ShowPosts';
+import ListPosts from '../components/ListPosts';
 import { fetchPosts } from '../actions/post';
 
-class Header extends Component {
+class List extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchPosts(''));
@@ -13,13 +13,13 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <ShowPosts posts={this.props.posts} />
+        <ListPosts posts={this.props.posts} />
       </div>
     );
   }
 }
 
-Header.proptypes = {
+List.proptypes = {
   categories: PropTypes.array.isReqired,
   dispatch: PropTypes.func.isRequired
 };
@@ -30,4 +30,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(List);
