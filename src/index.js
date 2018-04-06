@@ -20,7 +20,9 @@ const store = createStore(
 );
 
 store.dispatch(fetchCategories());
+
 /*store.dispatch(selectCategory('react'));
+store.dispatch(fetchCategories());
 store.dispatch(fetchPosts('')).then(() => console.log(store.getState()));
 store.dispatch(
   addPost(
