@@ -1,14 +1,14 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
-// import App from '.components/App';
-//import registerServiceWorker from './registerServiceWorker';
+import App from './components/App';
+import registerServiceWorker from './registerServiceWorker';
 import { fetchPosts, addPost } from './actions/post';
 import { selectCategory, fetchCategories } from './actions/category';
 import rootReducer from './reducers';
-//import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
 const loggerMiddleware = createLogger();
 
@@ -32,14 +32,11 @@ store.dispatch(
     'udacity'
   )
 );
-//store.dispatch(fetchPosts('')).then(() => console.log(store.getState()));
 
-/* was:
 ReactDOM.render(
-  //<Provider store={createStore(App)}>
-  <App store={createStore(reducer)} />,
-  //</Provider>,
+  <Provider store={store}>
+    <App />,
+  </Provider>,
   document.getElementById('root')
 );
 registerServiceWorker();
-*/
