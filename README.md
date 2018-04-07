@@ -23,7 +23,7 @@ It allows users to \*\*\*
 
 ## To do
 
-1.  ---
+1.  Segregate ListPosts into presentation components and sort container
 
 ## Review suggestions
 
