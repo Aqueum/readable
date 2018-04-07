@@ -6,7 +6,7 @@ export default class ShowCats extends Component {
   render() {
     return (
       <div>
-        {this.props.cat} <Link to="/">other categories</Link>
+        <strong>{this.props.cat}</strong> <Link to="/">other categories</Link>
       </div>
     );
   }
