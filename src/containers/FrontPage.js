@@ -6,7 +6,7 @@ class FrontPage extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header show="cats" />
         <List categories="" />
       </div>
     );

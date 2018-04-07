@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import ShowCats from '../components/Header/ShowCats';
+import ShowCat from '../components/Header/ShowCat';
 import { fetchCategories } from '../actions/category';
 
 class Header extends Component {
@@ -11,9 +12,14 @@ class Header extends Component {
   }
 
   render() {
+    const { show, categories, cat } = this.props;
     return (
       <div>
-        <ShowCats cats={this.props.categories} />
+        {show === 'cats' ? (
+          <ShowCats cats={categories} />
+        ) : (
+          <ShowCat cat={cat} />
+        )}
       </div>
     );
   }
@@ -21,7 +27,9 @@ class Header extends Component {
 
 Header.proptypes = {
   categories: PropTypes.array.isReqired,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
+  show: PropTypes.string.isRequired,
+  cat: PropTypes.string
 };
 
 function mapStateToProps(state) {
