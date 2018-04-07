@@ -7,10 +7,9 @@ export default class ShowCats extends Component {
     return (
       <div>
         {this.props.cats.map(cat => (
-          <Link key={cat.name} to={cat.name}>
-            {' '}
-            {cat.name}{' '}
-          </Link>
+          <span key={cat.name}>
+            <Link to={cat.name}>{cat.name}</Link>{' '}
+          </span>
         ))}
       </div>
     );
