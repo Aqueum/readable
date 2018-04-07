@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { votePost } from '../actions/post.js';
 
 export default class ListPosts extends Component {
@@ -9,7 +10,8 @@ export default class ListPosts extends Component {
         <ul>
           {this.props.posts.map(post => (
             <li key={post.title}>
-              <strong>{post.title}</strong> by {post.author}
+              <Link to={post.category + '/' + post.id}>{post.title}</Link> by{' '}
+              {post.author}
               , {post.commentCount} comments, score = {post.voteScore}
               <button onClick={votePost(post.id, 'upVote')}>+</button>
               <button onClick={votePost(post.id, 'downVote')}>-</button>
