@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { votePost } from '../actions/post.js';
 
-export default class ListPosts extends Component {
+export default class PostDetail extends Component {
   render() {
     const { post } = this.props;
     return (
@@ -22,6 +22,6 @@ export default class ListPosts extends Component {
   }
 }
 
-ListPosts.propTypes = {
-  post: PropTypes.array.isRequired
+PostDetail.propTypes = {
+  post: PropTypes.object.isRequired
 };
