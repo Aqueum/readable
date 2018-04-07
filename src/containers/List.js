@@ -6,8 +6,8 @@ import { fetchPosts } from '../actions/post';
 
 class List extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchPosts(''));
+    const { dispatch, categories } = this.props;
+    dispatch(fetchPosts(categories));
   }
 
   render() {

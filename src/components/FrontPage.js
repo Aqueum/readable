@@ -7,7 +7,7 @@ class FrontPage extends Component {
     return (
       <div>
         <Header />
-        <List />
+        <List categories="" />
       </div>
     );
   }
