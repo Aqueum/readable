@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Header from '../containers/Header';
 import PostDetail from '../components/PostDetail';
 
-class FrontPage extends Component {
+class Post extends Component {
   render() {
     const { post } = this.state;
     return (
@@ -17,7 +17,7 @@ class FrontPage extends Component {
   }
 }
 
-FrontPage.propTypes = {
+Post.propTypes = {
   posts: PropTypes.array.isRequired,
   post: PropTypes.array.isRequired,
   match: PropTypes.array.isRequired
@@ -28,4 +28,4 @@ const mapStateToProps = (state, ownProps) => ({
   post: _.find(state, 'id', ownProps.match.params.postid) || []
 });
 
-export default connect(mapStateToProps)(FrontPage);
+export default connect(mapStateToProps)(Post);
