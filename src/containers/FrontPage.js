@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../containers/Header';
-import List from '../containers/List';
+import Header from './Header';
+import List from './List';
 
 class FrontPage extends Component {
   render() {
