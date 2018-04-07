@@ -4,33 +4,59 @@ import { Link } from 'react-router-dom';
 import { votePost } from '../actions/post.js';
 
 export default class ListPosts extends Component {
+  constructor(props) {
+    // dropdown inspired by https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
+    super(props);
+    this.state = {
+      value: 'voteScore',
+      options: [
+        {
+          name: 'Score',
+          value: 'voteScore'
+        },
+        {
+          name: 'Recency',
+          value: 'timestamp'
+        }
+      ]
+    };
+  }
   render() {
-    console.log(this.props.posts);
-    const sortby = 'score';
+    const createItem = (item, key) => (
+      <option key={key} value={item.value}>
+        {item.name}
+      </option>
+    );
     const sortedPosts = [] // inspired by https://stackoverflow.com/questions/43572436/sort-an-array-of-objects-in-react-and-render-them/43572944
       .concat(this.props.posts)
-      .sort(
-        (a, b) =>
-          sortby === 'score'
-            ? a.voteScore < b.voteScore
-            : a.timestamp < b.timestamp
-      );
+      .sort((a, b) => a[this.state.value] < b[this.state.value]);
     return (
       <div>
-        <ul>
-          {sortedPosts.map(post => (
-            <li key={post.title}>
-              <Link to={post.category + '/' + post.id}>{post.title}</Link> by{' '}
-              {post.author}
-              , {post.commentCount} comments, score = {post.voteScore}, time ={' '}
-              {post.timestamp}
-              <button onClick={votePost(post.id, 'upVote')}>+</button>
-              <button onClick={votePost(post.id, 'downVote')}>-</button>
-              <button onClick={null}>edit</button>
-              <button onClick={null}>delete</button>
-            </li>
-          ))}
-        </ul>
+        <div>
+          Sort by:{' '}
+          <select
+            onChange={event => this.setState({ value: event.target.value })}
+            value={this.state.value}
+          >
+            {this.state.options.map(createItem)}
+          </select>
+        </div>
+        <div>
+          <ul>
+            {sortedPosts.map(post => (
+              <li key={post.title}>
+                <Link to={post.category + '/' + post.id}>{post.title}</Link> by{' '}
+                {post.author}
+                , {post.commentCount} comments, score = {post.voteScore}, time ={' '}
+                {post.timestamp}
+                <button onClick={votePost(post.id, 'upVote')}>+</button>
+                <button onClick={votePost(post.id, 'downVote')}>-</button>
+                <button onClick={null}>edit</button>
+                <button onClick={null}>delete</button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
