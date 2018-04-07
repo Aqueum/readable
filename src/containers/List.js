@@ -21,6 +21,7 @@ class List extends Component {
 
 List.proptypes = {
   categories: PropTypes.array.isReqired,
+  posts: PropTypes.array,
   dispatch: PropTypes.func.isRequired
 };
 
