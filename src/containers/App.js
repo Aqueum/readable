@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={FrontPage} />
-          <Route path="/post/:postid" component={Post} />
+          <Route path="/:category/:postid" component={Post} />
           <Route path="/:category" component={ListRoute} />
           <Route exact path="*" component={NotFound} />
         </Switch>
