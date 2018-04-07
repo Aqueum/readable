@@ -7,10 +7,10 @@ import PostDetail from '../components/PostDetail';
 
 class Post extends Component {
   render() {
-    const { post } = this.state;
+    const { post } = this.props;
     return (
       <div>
-        <Header show="cat" cat={post.category} />
+        <Header show="cat" cat={this.props.match.params.category} />
         <PostDetail post={post} />
       </div>
     );
@@ -18,14 +18,13 @@ class Post extends Component {
 }
 
 Post.propTypes = {
-  posts: PropTypes.array.isRequired,
-  post: PropTypes.array.isRequired,
-  match: PropTypes.array.isRequired
+  post: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
 };
 
 // inspired by https://stackoverflow.com/questions/34840994/javascript-redux-how-to-get-an-element-from-store-by-id
 const mapStateToProps = (state, ownProps) => ({
-  post: _.find(state, 'id', ownProps.match.params.postid) || []
+  post: _.find(state.posts.items, 'id', ownProps.match.params.postid) || {}
 });
 
 export default connect(mapStateToProps)(Post);
