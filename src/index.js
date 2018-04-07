@@ -4,7 +4,7 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
-import App from './components/App';
+import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 //import { fetchPosts, addPost } from './actions/post';
 // import { /*selectCategory,*/ fetchCategories } from './actions/category';

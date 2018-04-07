@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FrontPage from './FrontPage';
-import ListRoute from '../containers/ListRoute';
-import NotFound from './NotFound';
-import ViewPost from './ViewPost';
+import ListRoute from './ListRoute';
+import NotFound from '../components/NotFound';
+import ViewPost from '../components/ViewPost';
 
 class App extends Component {
   render() {
