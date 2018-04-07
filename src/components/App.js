@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FrontPage from './FrontPage';
-import List from '../containers/List';
+import ListRoute from '../containers/ListRoute';
 import NotFound from './NotFound';
 import ViewPost from './ViewPost';
 
@@ -12,7 +12,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={FrontPage} />
           <Route path="/post/:postid" component={ViewPost} />
-          <Route exact path="/list" render={() => <List categories="" />} />
+          <Route path="/:category" component={ListRoute} />
           <Route exact path="*" component={NotFound} />
         </Switch>
       </div>
@@ -20,4 +20,7 @@ class App extends Component {
   }
 }
 
+/*
+<Route exact path="/list" render={() => <List categories="" />} />
+*/
 export default App;
