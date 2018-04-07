@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import FrontPage from './FrontPage';
 import ListRoute from './ListRoute';
 import NotFound from '../components/NotFound';
-import ViewPost from '../components/ViewPost';
+import Post from './Post';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={FrontPage} />
-          <Route path="/post/:postid" component={ViewPost} />
+          <Route path="/post/:postid" component={Post} />
           <Route path="/:category" component={ListRoute} />
           <Route exact path="*" component={NotFound} />
         </Switch>
