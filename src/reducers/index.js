@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { categories, selectedCategory } from './category';
+import { categories } from './category';
 import { posts } from './post';
+import { selections } from './selections';
 
 const rootReducer = combineReducers({
   categories,
-  selectedCategory,
+  selections,
   posts
 });
 

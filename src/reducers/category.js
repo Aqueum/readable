@@ -3,18 +3,8 @@
 import {
   INVALIDATE_CATEGORIES,
   REQUEST_CATEGORIES,
-  RECEIVE_CATEGORIES,
-  SELECT_CATEGORY
+  RECEIVE_CATEGORIES
 } from '../actions/category';
-
-export function selectedCategory(state = '', action) {
-  switch (action.type) {
-    case SELECT_CATEGORY:
-      return action.category;
-    default:
-      return state;
-  }
-}
 
 export function categories(
   state = {
