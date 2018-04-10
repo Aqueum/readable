@@ -52,7 +52,9 @@ export function posts(
     case RECEIVE_VOTE:
       return Object.assign({}, state, {
         isFetching: true,
-        items: action.post
+        items: state.items.map(
+          item => (item.id === action.post.id ? action.post : item)
+        )
       });
     default:
       return state;
