@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import ListPosts from '../components/ListPosts';
+import ListPosts from '../containers/ListPosts';
 import { fetchPosts } from '../actions/post';
 
 class List extends Component {

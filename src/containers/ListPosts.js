@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { votePost } from '../actions/post.js';
 
-export default class ListPosts extends Component {
+class ListPosts extends Component {
   constructor(props) {
     // dropdown inspired by https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
     super(props);
@@ -49,8 +50,20 @@ export default class ListPosts extends Component {
                 {post.author}
                 , {post.commentCount} comments, score = {post.voteScore}, time ={' '}
                 {post.timestamp}
-                <button onClick={votePost(post.id, 'upVote')}>+</button>
-                <button onClick={votePost(post.id, 'downVote')}>-</button>
+                <button
+                  onClick={() => {
+                    this.props.dispatch(votePost(post.id, 'upVote'));
+                  }}
+                >
+                  +
+                </button>
+                <button
+                  onClick={() => {
+                    this.props.dispatch(votePost(post.id, 'downVote'));
+                  }}
+                >
+                  -
+                </button>
                 <button onClick={null}>edit</button>
                 <button onClick={null}>delete</button>
               </li>
@@ -66,3 +79,5 @@ ListPosts.propTypes = {
   posts: PropTypes.array.isRequired
   //upVote: PropTypes.func.isRequired
 };
+
+export default connect()(ListPosts);
