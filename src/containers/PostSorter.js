@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ListPosts extends Component {
+class PostSorter extends Component {
   constructor(props) {
     // dropdown inspired by https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
     super(props);
@@ -42,9 +42,9 @@ class ListPosts extends Component {
   }
 }
 
-ListPosts.propTypes = {
+PostSorter.propTypes = {
   posts: PropTypes.array.isRequired
   //upVote: PropTypes.func.isRequired
 };
 
-export default ListPosts;
+export default PostSorter;
