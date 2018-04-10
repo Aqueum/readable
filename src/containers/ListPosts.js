@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import ButtonBar from './ButtonBar';
+import ShowPostLine from '../components/Body/ShowPostLine';
 
 class ListPosts extends Component {
   constructor(props) {
@@ -45,11 +44,7 @@ class ListPosts extends Component {
           <ul>
             {sortedPosts.map(post => (
               <li key={post.title}>
-                <Link to={post.category + '/' + post.id}>{post.title}</Link> by{' '}
-                {post.author}
-                , {post.commentCount} comments, score = {post.voteScore}, time ={' '}
-                {post.timestamp}
-                <ButtonBar post={post} />
+                <ShowPostLine post={post} />
               </li>
             ))}
           </ul>
