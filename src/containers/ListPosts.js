@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { votePost } from '../actions/post.js';
+import ButtonBar from './ButtonBar';
 
 class ListPosts extends Component {
   constructor(props) {
@@ -50,22 +49,7 @@ class ListPosts extends Component {
                 {post.author}
                 , {post.commentCount} comments, score = {post.voteScore}, time ={' '}
                 {post.timestamp}
-                <button
-                  onClick={() => {
-                    this.props.dispatch(votePost(post.id, 'upVote'));
-                  }}
-                >
-                  +
-                </button>
-                <button
-                  onClick={() => {
-                    this.props.dispatch(votePost(post.id, 'downVote'));
-                  }}
-                >
-                  -
-                </button>
-                <button onClick={null}>edit</button>
-                <button onClick={null}>delete</button>
+                <ButtonBar post={post} />
               </li>
             ))}
           </ul>
@@ -80,4 +64,4 @@ ListPosts.propTypes = {
   //upVote: PropTypes.func.isRequired
 };
 
-export default connect()(ListPosts);
+export default ListPosts;
