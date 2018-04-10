@@ -5,6 +5,13 @@ import Header from '../containers/Header';
 import ShowPostDetail from '../components/Body/ShowPostDetail';
 import { getPost } from '../actions/post';
 
+/*
+I'm not massively happy with the efficiency of this:
+we're taking something that may already be in state in posts.items
+and readding it as post.item, because if we don't then going straight to
+http://localhost:3000/react/8xf0y6ziyjabvozdd253nd could be empty
+*/
+
 class Post extends Component {
   componentDidMount() {
     const { dispatch } = this.props;

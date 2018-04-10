@@ -5,6 +5,11 @@ import ShowCats from '../components/Header/ShowCats';
 import ShowCat from '../components/Header/ShowCat';
 import { fetchCategories } from '../actions/category';
 
+/*
+I'm not massively happy with the efficiency of this:
+we're fetching the same categories every time this page is refreshed
+*/
+
 class Header extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
