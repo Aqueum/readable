@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import Header from '../containers/Header';
-import PostDetail from '../components/PostDetail';
+import ShowPostDetail from '../components/ShowPostDetail';
 
 class Post extends Component {
   render() {
@@ -11,7 +11,7 @@ class Post extends Component {
     return (
       <div>
         <Header show="cat" cat={this.props.match.params.category} />
-        <PostDetail post={post} />
+        <ShowPostDetail post={post} />
       </div>
     );
   }
