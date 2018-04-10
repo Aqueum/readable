@@ -7,7 +7,9 @@ import {
   RECEIVE_ADD_POST,
   INVALIDATE_CATEGORY,
   REQUEST_VOTE,
-  RECEIVE_VOTE
+  RECEIVE_VOTE,
+  REQUEST_POST,
+  RECEIVE_POST
 } from '../actions/post';
 
 export function posts(
@@ -55,6 +57,18 @@ export function posts(
         items: state.items.map(
           item => (item.id === action.post.id ? action.post : item)
         )
+      });
+    case REQUEST_POST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case RECEIVE_POST:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        item: action.post,
+        lastUpdated: action.receivedAt
       });
     default:
       return state;

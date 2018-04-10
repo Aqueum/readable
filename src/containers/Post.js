@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import Header from '../containers/Header';
 import ShowPostDetail from '../components/Body/ShowPostDetail';
+import { getPost } from '../actions/post';
 
 class Post extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    console.log(this.props.match.params.postid);
+    dispatch(getPost(this.props.match.params.postid));
+  }
+
   render() {
     const { post } = this.props;
     return (
@@ -24,7 +30,7 @@ Post.propTypes = {
 
 // inspired by https://stackoverflow.com/questions/34840994/javascript-redux-how-to-get-an-element-from-store-by-id
 const mapStateToProps = (state, ownProps) => ({
-  post: _.find(state.posts.items, 'id', ownProps.match.params.postid) || {}
+  post: state.posts.item || {}
 });
 
 export default connect(mapStateToProps)(Post);

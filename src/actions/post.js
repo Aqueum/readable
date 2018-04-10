@@ -69,6 +69,24 @@ export function receiveVote(json) {
   };
 }
 
+export const REQUEST_POST = 'REQUEST_POST';
+function requestPost(id) {
+  return {
+    type: REQUEST_POST,
+    id
+  };
+}
+
+export const RECEIVE_POST = 'RECEIVE_POST';
+function receivePost(id, json) {
+  return {
+    type: RECEIVE_POST,
+    id,
+    post: json, //was json.data.children.map(child => child.data)
+    receivedAt: Date.now()
+  };
+}
+
 /*
 GET /posts
   USAGE:
@@ -171,3 +189,20 @@ export function votePost(id, vote) {
   };
 }
 */
+
+/* ************************ fix this V
+GET /posts/:id
+  USAGE:
+    Get the details of a single post
+*/
+export function getPost(id) {
+  return function(dispatch) {
+    dispatch(requestPost(id));
+    return fetch(`${api}/posts/${id}`, { headers })
+      .then(
+        response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => dispatch(receivePost(id, json)));
+  };
+}
