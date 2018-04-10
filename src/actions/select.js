@@ -7,7 +7,7 @@ export function selectCategory(category) {
 }
 
 export const SELECT_SORT = 'SELECT_SORT';
-export function selectSortBy(sortBy) {
+export function selectSort(sortBy) {
   return {
     type: SELECT_SORT,
     sortBy
