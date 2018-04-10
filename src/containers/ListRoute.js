@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import List from './List';
+import ListPosts from './ListPosts';
 import Header from './Header';
 
 class ViewPost extends Component {
@@ -8,7 +8,7 @@ class ViewPost extends Component {
     return (
       <div>
         <Header show="cat" cat={category} />
-        <List categories={category} />
+        <ListPosts categories={category} />
       </div>
     );
   }

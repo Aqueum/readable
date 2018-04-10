@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import List from './List';
+import ListPosts from './ListPosts';
 
 class FrontPage extends Component {
   render() {
     return (
       <div>
         <Header show="cats" />
-        <List categories="" />
+        <ListPosts categories="" />
       </div>
     );
   }
