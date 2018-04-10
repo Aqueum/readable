@@ -1,11 +1,21 @@
 import { SELECT_CATEGORY, SELECT_SORT } from '../actions/select';
 
-export function selections(state = '', action) {
+export function selections(
+  state = {
+    selectCat: '',
+    selectSort: 'score'
+  },
+  action
+) {
   switch (action.type) {
     case SELECT_CATEGORY:
-      return action.category;
+      return Object.assign({}, state, {
+        selectCat: action.selectCat
+      });
     case SELECT_SORT:
-      return action.sortby;
+      return Object.assign({}, state, {
+        selectSort: action.selectSort
+      });
     default:
       return state;
   }
