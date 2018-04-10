@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import Header from '../containers/Header';
-import ShowPostDetail from '../components/ShowPostDetail';
+import ShowPostDetail from '../components/Body/ShowPostDetail';
 
 class Post extends Component {
   render() {
