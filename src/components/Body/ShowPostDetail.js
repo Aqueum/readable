@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { votePost } from '../actions/post.js';
-import ButtonBar from '../containers/ButtonBar';
+import ButtonBar from '../../containers/ButtonBar';
 
 export default class ShowPostDetail extends Component {
   render() {
