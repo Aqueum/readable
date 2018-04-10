@@ -3,7 +3,7 @@ import { SELECT_CATEGORY, SELECT_SORT } from '../actions/select';
 export function selections(
   state = {
     selectCat: '',
-    selectSort: 'score'
+    selectSort: 'voteScore'
   },
   action
 ) {

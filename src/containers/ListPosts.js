@@ -33,7 +33,8 @@ List.proptypes = {
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts.items || []
+    posts: state.posts.items || [],
+    sortBy: state.selections.selectSort
   };
 }
 
