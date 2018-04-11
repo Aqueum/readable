@@ -23,16 +23,19 @@ class ListPosts extends Component {
   }
 
   render() {
-    const { sortBy, posts } = this.props;
+    const { selectSort, sortValue, posts } = this.props;
+    const sortedPosts = [] // inspired by https://stackoverflow.com/questions/43572436/sort-an-array-of-objects-in-react-and-render-them/43572944
+      .concat(posts)
+      .sort((a, b) => a[sortValue] < b[sortValue]);
     return (
       <div>
         <Dropdown
           options={['score', 'recency']}
-          selected={sortBy}
+          selected={selectSort}
           onChange={this.handleChange}
         />
         <ul>
-          {posts.map(post => (
+          {sortedPosts.map(post => (
             <li key={post.title}>
               <ShowPostLine post={post} />
             </li>
@@ -52,7 +55,8 @@ ListPosts.proptypes = {
 function mapStateToProps(state) {
   return {
     posts: state.posts.items || [],
-    sortBy: state.selections.selectSort
+    selectSort: state.selections.selectSort,
+    sortValue: state.selections.sortValue
   };
 }
 
