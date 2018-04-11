@@ -107,7 +107,6 @@ export const votePost = (postId, vote) =>
     .then(data => data);
 
 /*
-
 PUT /posts/:id
   USAGE:
     Edit the details of an existing post
