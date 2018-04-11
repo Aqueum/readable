@@ -105,6 +105,26 @@ function receiveDeletePost(id, json) {
   };
 }
 
+export const REQUEST_EDIT_POST = 'REQUEST_EDIT_POST';
+function requestEditPost(id, title, body) {
+  return {
+    type: REQUEST_EDIT_POST,
+    id,
+    title,
+    body
+  };
+}
+
+export const RECEIVE_EDIT_POST = 'RECEIVE_EDIT_POST';
+function receiveEditPost(id, json) {
+  return {
+    type: RECEIVE_EDIT_POST,
+    id,
+    post: json, //was json.data.children.map(child => child.data)
+    receivedAt: Date.now()
+  };
+}
+
 /*
 GET /posts
   USAGE:
@@ -243,5 +263,32 @@ export function delPost(id) {
         error => console.log('An error occurred.', error)
       )
       .then(json => dispatch(receiveDeletePost(id, json)));
+  };
+}
+
+/*
+PUT /posts/:id
+  USAGE:
+    Edit the details of an existing post
+  PARAMS:
+    title - String
+    body - String
+*/
+export function editPost(id, title, body) {
+  return function(dispatch) {
+    dispatch(requestEditPost(id, title, body));
+    return fetch(`${api}/posts/${id}`, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify({
+        title: title,
+        body: body
+      })
+    })
+      .then(
+        response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => dispatch(receiveEditPost(id, json)));
   };
 }

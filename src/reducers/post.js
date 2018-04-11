@@ -11,7 +11,9 @@ import {
   REQUEST_POST,
   RECEIVE_POST,
   REQUEST_DELETE_POST,
-  RECEIVE_DELETE_POST
+  RECEIVE_DELETE_POST,
+  REQUEST_EDIT_POST,
+  RECEIVE_EDIT_POST
 } from '../actions/post';
 
 export function posts(
@@ -82,6 +84,20 @@ export function posts(
         isFetching: false,
         didInvalidate: false,
         items: state.items.filter(item => item.id !== action.posts.id),
+        lastUpdated: action.receivedAt
+      });
+    case REQUEST_EDIT_POST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case RECEIVE_EDIT_POST:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        items: state.items.map(
+          item => (item.id === action.post.id ? action.post : item)
+        ),
         lastUpdated: action.receivedAt
       });
     default:
