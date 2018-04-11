@@ -16,6 +16,7 @@ It allows users to \*\*\*
 2.  navigate to the created readable folder
 3.  `npm install`
 4.  `npm install --save react-router-dom` \*\*\*
+    npm install uuid
 5.  `npm start`
 6.  then play with webpage that should open at http://localhost:3000/
 

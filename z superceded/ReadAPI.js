@@ -1,5 +1,6 @@
 // modified from MyReads/src/BooksAPI.js :  https://github.com/Aqueum/MyReads/blob/master/src/BooksAPI.js
 const api = 'http://localhost:3001';
+const uuidv4 = require('uuid/v4');
 
 // Generate a unique token for storing data on the backend server.
 let token = localStorage.token;
@@ -66,7 +67,7 @@ export const addPost = (id, timestamp, title, body, author, category) =>
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      id: id,
+      id: uuidv4(),
       timestamp: timestamp,
       title: title,
       body: body,
