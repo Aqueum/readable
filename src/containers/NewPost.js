@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addPost } from '../actions/post';
 
 const NewPost = ({ dispatch }) => {
-  let id, title, body, author;
+  let title, body, author;
 
   return (
     <div>
@@ -13,14 +13,9 @@ const NewPost = ({ dispatch }) => {
           if (!title.value.trim()) {
             return;
           }
-          dispatch(
-            addPost(id.value, title.value, body.value, author.value, 'udacity')
-          );
+          dispatch(addPost(title.value, body.value, author.value, 'udacity'));
         }}
       >
-        <p>
-          Post ID <input name="id" ref={node => (id = node)} />
-        </p>
         <p>
           Post Title <input name="title" ref={node => (title = node)} />
         </p>
