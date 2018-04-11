@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import ShowPostLine from '../components/Body/ShowPostLine';
 import { fetchPosts } from '../actions/post';
+import { selectSort } from '../actions/select';
 
-class List extends Component {
+import Dropdown from '../components/dropdown';
+
+class ListPosts extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   componentDidMount() {
     const { dispatch, categories } = this.props;
     dispatch(fetchPosts(categories));
   }
 
+  handleChange(nextSort) {
+    this.props.dispatch(selectSort(nextSort));
+  }
+
   render() {
+    const { sortBy, posts } = this.props;
     return (
       <div>
+        <Dropdown
+          options={['score', 'recency']}
+          selected={sortBy}
+          onChange={this.handleChange}
+        />
         <ul>
-          {this.props.posts.map(post => (
+          {posts.map(post => (
             <li key={post.title}>
               <ShowPostLine post={post} />
             </li>
@@ -25,7 +43,7 @@ class List extends Component {
   }
 }
 
-List.proptypes = {
+ListPosts.proptypes = {
   categories: PropTypes.array.isReqired,
   posts: PropTypes.array,
   dispatch: PropTypes.func.isRequired
@@ -38,4 +56,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(List);
+export default connect(mapStateToProps)(ListPosts);
