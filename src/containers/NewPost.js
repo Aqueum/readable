@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addPost } from '../actions/post';
+import Dropdown from '../components/dropdown';
 
 const NewPost = ({ dispatch }) => {
   let title, body, author;
@@ -25,7 +26,15 @@ const NewPost = ({ dispatch }) => {
         <p>
           Post Body <textarea ref={node => (body = node)} />
         </p>
-        <button type="submit">Add Post</button>
+        Category:
+        <Dropdown
+          options={['redux', 'react', 'udacity']}
+          selected={'udacity'}
+          onChange={console.log('change')}
+        />
+        <div>
+          <button type="submit">Add Post</button>
+        </div>
       </form>
     </div>
   );
