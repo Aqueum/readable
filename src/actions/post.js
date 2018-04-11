@@ -1,4 +1,5 @@
 import { api, headers } from '../utils/api.js';
+import uuid4 from 'uuid/v4';
 
 // action structure modified from https://redux.js.org/advanced/async-actions
 // import fetch from 'cross-fetch'; - presumed not neccesary
@@ -22,11 +23,11 @@ function receivePosts(category, json) {
 }
 
 export const REQUEST_ADD_POST = 'REQUEST_ADD_POST';
-function requestAddPost(id, title, body, author, category) {
+function requestAddPost(id, timestamp, title, body, author, category) {
   return {
     type: REQUEST_ADD_POST,
     id,
-    timestamp: Date.now(),
+    timestamp,
     title,
     body,
     author,
@@ -125,15 +126,15 @@ POST /posts
     category: Any of the categories listed in categories.js. Feel free to extend this list as you desire.
 hint from: https://udacity-react.slack.com/archives/C6HMLBTQB/p1508823362000167
 */
-export function addPost(id, timestamp, title, body, author, category) {
+export function addPost(title, body, author, category) {
   return function(dispatch) {
     dispatch(requestAddPost(id, timestamp, title, body, author, category));
     return fetch(`${api}/posts`, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({
-        id: id,
-        timestamp: timestamp,
+        id: uuid4(),
+        timestamp: Date.now(),
         title: title,
         body: body,
         author: author,
