@@ -1,44 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addPost } from '../actions/post';
-import Dropdown from '../components/dropdown';
 
-const NewPost = ({ dispatch }) => {
-  let title, body, author;
+class NewPost extends Component {
+  render() {
+    let title, body, author, category;
 
-  return (
-    <div>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          if (!title.value.trim()) {
-            return;
-          }
-          dispatch(addPost(title.value, body.value, author.value, 'udacity'));
-        }}
-      >
-        <p>
-          Post Title <input name="title" ref={node => (title = node)} />
-        </p>
-        <p>
-          Post Author <input name="author" ref={node => (author = node)} />
-        </p>
-        <p>
-          Post Body <textarea ref={node => (body = node)} />
-        </p>
-        Category:
-        <Dropdown
-          options={['redux', 'react', 'udacity']}
-          selected={'udacity'}
-          onChange={console.log('change')}
-        />
-        <div>
-          <button type="submit">Add Post</button>
-        </div>
-      </form>
-    </div>
-  );
-};
+    return (
+      <div>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            if (!title.value.trim()) {
+              return;
+            }
+            this.props.dispatch(
+              addPost(title.value, body.value, author.value, category.value)
+            );
+          }}
+        >
+          <p>
+            Post Title <input name="title" ref={node => (title = node)} />
+          </p>
+          <p>
+            Post Author <input name="author" ref={node => (author = node)} />
+          </p>
+          <p>
+            Post Body <textarea ref={node => (body = node)} />
+          </p>
+          <label>
+            Category:
+            <select ref={node => (category = node)}>
+              <option value="react">react</option>
+              <option value="redux">redux</option>
+              <option selected value="udacity">
+                udacity
+              </option>
+            </select>
+          </label>
+          <div>
+            <button type="submit">Add Post</button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default connect()(NewPost);
 
