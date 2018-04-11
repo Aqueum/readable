@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { votePost } from '../actions/post.js';
+import { votePost, delPost } from '../actions/post.js';
 
 class ButtonBar extends Component {
   render() {
@@ -22,7 +22,13 @@ class ButtonBar extends Component {
           -
         </button>
         <button onClick={null}>edit</button>
-        <button onClick={null}>delete</button>
+        <button
+          onClick={() => {
+            this.props.dispatch(delPost(post.id));
+          }}
+        >
+          delete
+        </button>
       </div>
     );
   }

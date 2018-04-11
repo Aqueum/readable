@@ -88,6 +88,23 @@ function receivePost(id, json) {
   };
 }
 
+export const REQUEST_DELETE_POST = 'REQUEST_DELETE_POST';
+function requestDeletePost(id) {
+  return {
+    type: REQUEST_DELETE_POST,
+    id
+  };
+}
+
+export const RECEIVE_DELETE_POST = 'RECEIVE_DELETE_POST';
+function receiveDeletePost(id, json) {
+  return {
+    type: RECEIVE_DELETE_POST,
+    id,
+    posts: json
+  };
+}
+
 /*
 GET /posts
   USAGE:
@@ -205,5 +222,26 @@ export function getPost(id) {
         error => console.log('An error occurred.', error)
       )
       .then(json => dispatch(receivePost(id, json)));
+  };
+}
+
+/*
+DELETE /posts/:id
+  USAGE:
+    Sets the deleted flag for a post to 'true'.
+    Sets the parentDeleted flag for all child comments to 'true'.
+*/
+export function delPost(id) {
+  return function(dispatch) {
+    dispatch(requestDeletePost(id));
+    return fetch(`${api}/posts/${id}`, {
+      method: 'DELETE',
+      headers
+    })
+      .then(
+        response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => dispatch(receiveDeletePost(id, json)));
   };
 }

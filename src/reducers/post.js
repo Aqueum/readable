@@ -9,7 +9,9 @@ import {
   REQUEST_VOTE,
   RECEIVE_VOTE,
   REQUEST_POST,
-  RECEIVE_POST
+  RECEIVE_POST,
+  REQUEST_DELETE_POST,
+  RECEIVE_DELETE_POST
 } from '../actions/post';
 
 export function posts(
@@ -68,6 +70,18 @@ export function posts(
         isFetching: false,
         didInvalidate: false,
         item: action.post,
+        lastUpdated: action.receivedAt
+      });
+    case REQUEST_DELETE_POST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case RECEIVE_DELETE_POST:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        items: state.items.filter(item => item.id !== action.posts.id),
         lastUpdated: action.receivedAt
       });
     default:
