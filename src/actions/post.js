@@ -22,11 +22,11 @@ function receivePosts(category, json) {
 }
 
 export const REQUEST_ADD_POST = 'REQUEST_ADD_POST';
-function requestAddPost(id, timestamp, title, body, author, category) {
+function requestAddPost(id, title, body, author, category) {
   return {
     type: REQUEST_ADD_POST,
     id,
-    timestamp,
+    timestamp: Date.now(),
     title,
     body,
     author,
