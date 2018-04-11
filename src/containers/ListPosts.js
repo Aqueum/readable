@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import ShowPostLine from '../components/Body/ShowPostLine';
 import { fetchPosts } from '../actions/post';
 import { selectSort } from '../actions/select';
@@ -41,6 +42,9 @@ class ListPosts extends Component {
             </li>
           ))}
         </ul>
+        <Link to="/newpost">
+          <button>New post</button>
+        </Link>
       </div>
     );
   }
