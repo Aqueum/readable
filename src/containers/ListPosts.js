@@ -30,6 +30,7 @@ class ListPosts extends Component {
       .sort((a, b) => a[sortValue] < b[sortValue]);
     return (
       <div>
+        Sort by:
         <Dropdown
           options={['score', 'recency']}
           selected={selectSort}

@@ -6,8 +6,7 @@ class Dropdown extends Component {
     const { options, selected, onChange } = this.props;
 
     return (
-      <div>
-        Sort by:
+      <span>
         <select onChange={e => onChange(e.target.value)} value={selected}>
           {options.map(option => (
             <option value={option} key={option}>
@@ -15,7 +14,7 @@ class Dropdown extends Component {
             </option>
           ))}
         </select>
-      </div>
+      </span>
     );
   }
 }
