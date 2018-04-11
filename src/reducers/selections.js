@@ -3,7 +3,8 @@ import { SELECT_CATEGORY, SELECT_SORT } from '../actions/select';
 export function selections(
   state = {
     selectCat: '',
-    selectSort: 'score'
+    selectSort: 'score',
+    sortValue: 'voteScore'
   },
   action
 ) {
@@ -14,7 +15,8 @@ export function selections(
       });
     case SELECT_SORT:
       return Object.assign({}, state, {
-        selectSort: action.selectSort
+        selectSort: action.selectSort,
+        sortValue: action.sortValue
       });
     default:
       return state;

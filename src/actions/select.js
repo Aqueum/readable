@@ -8,8 +8,10 @@ export function selectCategory(category) {
 
 export const SELECT_SORT = 'SELECT_SORT';
 export function selectSort(sortBy) {
+  const lookup = { score: 'voteScore', recency: 'timestamp' };
   return {
     type: SELECT_SORT,
-    selectSort: sortBy
+    selectSort: sortBy,
+    sortValue: lookup[sortBy]
   };
 }
