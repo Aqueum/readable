@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import ShowCats from '../components/Header/ShowCats';
 import ShowCat from '../components/Header/ShowCat';
 import { fetchCategories } from '../actions/category';
