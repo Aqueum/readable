@@ -15,8 +15,8 @@ class ListPosts extends Component {
   }
 
   componentDidMount() {
-    const { dispatch, categories } = this.props;
-    dispatch(fetchPosts(categories));
+    const { dispatch, category } = this.props;
+    dispatch(fetchPosts(category));
   }
 
   handleChange(nextSort) {
