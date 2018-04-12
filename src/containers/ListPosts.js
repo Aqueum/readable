@@ -52,7 +52,7 @@ class ListPosts extends Component {
 }
 
 ListPosts.proptypes = {
-  categories: PropTypes.array.isReqired,
+  category: PropTypes.string.isReqired,
   posts: PropTypes.array,
   dispatch: PropTypes.func.isRequired
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FrontPage from './FrontPage';
 import NewPost from './NewPost';
-import ListRoute from './ListRoute';
+//import ListRoute from './ListRoute';
 import NotFound from '../components/NotFound';
 import Post from './Post';
 import EditPost from './EditPost';
@@ -16,7 +16,7 @@ class App extends Component {
           <Route exact path="/newpost" component={NewPost} />
           <Route path="/:category/:postid/edit" component={EditPost} />
           <Route path="/:category/:postid" component={Post} />
-          <Route path="/:category" component={ListRoute} />
+          <Route path="/:category" component={FrontPage} />
           <Route exact path="*" component={NotFound} />
         </Switch>
       </div>
