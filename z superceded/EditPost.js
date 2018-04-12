@@ -8,6 +8,9 @@ import { getPost, editPost } from '../actions/post';
  * let them deal with them and then finally dispatch the amended values on submit
  * the problem is I can't seem to get the store state in time to initialise local state
  */
+
+// inspired by: https://reactjs.org/docs/forms.html
+
 class EditPost extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
