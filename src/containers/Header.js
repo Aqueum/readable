@@ -39,7 +39,6 @@ class Header extends Component {
                     onClick={() => {
                       dispatch(selectCategory(cat.name));
                       this.props.history.push('/' + cat.name);
-                      window.location.reload(); // Mike Jackson: https://github.com/ReactTraining/react-router/issues/1982
                     }}
                   >
                     {cat.name}
@@ -47,16 +46,19 @@ class Header extends Component {
                 </span>
               )
           )}
-          <button
-            className="button"
-            onClick={() => {
-              dispatch(selectCategory(''));
-              this.props.history.push('/');
-              window.location.reload();
-            }}
-          >
-            Everything
-          </button>{' '}
+          {selectCat === '' ? (
+            <button className="selected">Everything</button>
+          ) : (
+            <button
+              className="button"
+              onClick={() => {
+                dispatch(selectCategory(''));
+                this.props.history.push('/');
+              }}
+            >
+              Everything
+            </button>
+          )}
         </div>
       </div>
     );
