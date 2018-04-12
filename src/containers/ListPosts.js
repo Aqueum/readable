@@ -19,6 +19,14 @@ class ListPosts extends Component {
     dispatch(fetchPosts(category));
   }
 
+  // A fudge I inserted because the list wouldn't update
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectCat !== this.props.selectCat) {
+      const { dispatch, category } = nextProps;
+      dispatch(fetchPosts(category));
+    }
+  }
+
   handleChange(nextSort) {
     this.props.dispatch(selectSort(nextSort));
   }
@@ -61,7 +69,8 @@ function mapStateToProps(state) {
   return {
     posts: state.posts.items || [],
     selectSort: state.selections.selectSort,
-    sortValue: state.selections.sortValue
+    sortValue: state.selections.sortValue,
+    selectCat: state.selections.selectCat
   };
 }
 

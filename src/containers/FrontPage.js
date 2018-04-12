@@ -7,7 +7,7 @@ class FrontPage extends Component {
   render() {
     return (
       <div>
-        <Header show="cats" />
+        <Header />
         <ListPosts category={this.props.match.params.category || ''} />
       </div>
     );
