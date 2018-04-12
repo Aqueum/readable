@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { votePost, delPost } from '../actions/post.js';
 
 class ButtonBar extends Component {
   render() {
-    const { post } = this.props;
+    const { post, dispatch } = this.props;
     return (
       <div>
         <button
           onClick={() => {
-            this.props.dispatch(votePost(post.id, 'upVote'));
+            dispatch(votePost(post.id, 'upVote'));
           }}
         >
           +
         </button>
         <button
           onClick={() => {
-            this.props.dispatch(votePost(post.id, 'downVote'));
+            dispatch(votePost(post.id, 'downVote'));
           }}
         >
           -
@@ -27,7 +28,7 @@ class ButtonBar extends Component {
         </Link>
         <button
           onClick={() => {
-            this.props.dispatch(delPost(post.id));
+            dispatch(delPost(post.id));
           }}
         >
           delete
@@ -36,5 +37,9 @@ class ButtonBar extends Component {
     );
   }
 }
+
+ButtonBar.propTypes = {
+  post: PropTypes.object.isRequired
+};
 
 export default connect()(ButtonBar);
