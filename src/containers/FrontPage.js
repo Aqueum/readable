@@ -5,7 +5,6 @@ import ListPosts from './ListPosts';
 
 class FrontPage extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <Header show="cats" />
