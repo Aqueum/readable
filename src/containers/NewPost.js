@@ -30,12 +30,10 @@ class NewPost extends Component {
           </p>
           <label>
             Category:
-            <select ref={node => (category = node)}>
+            <select defaultValue="udacity" ref={node => (category = node)}>
               <option value="react">react</option>
               <option value="redux">redux</option>
-              <option selected value="udacity">
-                udacity
-              </option>
+              <option value="udacity">udacity</option>
             </select>
           </label>
           <div>
