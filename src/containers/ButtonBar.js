@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { votePost, delPost } from '../actions/post.js';
 
 class ButtonBar extends Component {
@@ -21,7 +22,9 @@ class ButtonBar extends Component {
         >
           -
         </button>
-        <button onClick={null}>edit</button>
+        <Link to={'/' + post.category + '/' + post.id + '/edit'}>
+          <button>edit</button>
+        </Link>
         <button
           onClick={() => {
             this.props.dispatch(delPost(post.id));
