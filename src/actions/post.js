@@ -63,7 +63,6 @@ export function requestVote(id, vote) {
 
 export const RECEIVE_VOTE = 'RECEIVE_VOTE';
 export function receiveVote(json) {
-  console.log(json);
   return {
     type: RECEIVE_VOTE,
     post: json
