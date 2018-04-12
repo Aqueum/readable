@@ -36,7 +36,13 @@ class EditPost extends Component {
   }
 
   handleSubmit(event) {
-    alert('Title: ' + this.state.title + '  Body: ' + this.state.body);
+    this.props.dispatch(
+      editPost(
+        this.props.match.params.postid,
+        this.state.title,
+        this.state.body
+      )
+    );
     event.preventDefault();
   }
 
