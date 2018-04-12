@@ -60,7 +60,8 @@ export function posts(
         isFetching: true,
         items: state.items.map(
           item => (item.id === action.post.id ? action.post : item)
-        )
+        ),
+        item: action.post
       });
     case REQUEST_POST:
       return Object.assign({}, state, {
@@ -84,6 +85,7 @@ export function posts(
         isFetching: false,
         didInvalidate: false,
         items: state.items.filter(item => item.id !== action.posts.id),
+        item: null,
         lastUpdated: action.receivedAt
       });
     case REQUEST_EDIT_POST:
