@@ -15,8 +15,7 @@ class EditPost extends Component {
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(getPost(this.props.match.params.postid));
+    this.props.dispatch(getPost(this.props.match.params.postid));
   }
 
   componentWillReceiveProps(nextProps) {
