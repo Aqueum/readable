@@ -38,7 +38,9 @@ class NewPost extends Component {
             </select>
           </label>
           <div>
-            <button type="submit">Add Post</button>
+            <button className="button" type="submit">
+              Add Post
+            </button>
           </div>
         </form>
       </div>

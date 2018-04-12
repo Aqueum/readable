@@ -10,6 +10,7 @@ class ButtonBar extends Component {
     return (
       <div>
         <button
+          className="button"
           onClick={() => {
             dispatch(votePost(post.id, 'upVote'));
           }}
@@ -17,6 +18,7 @@ class ButtonBar extends Component {
           +
         </button>
         <button
+          className="button"
           onClick={() => {
             dispatch(votePost(post.id, 'downVote'));
           }}
@@ -24,9 +26,10 @@ class ButtonBar extends Component {
           -
         </button>
         <Link to={'/' + post.category + '/' + post.id + '/edit'}>
-          <button>edit</button>
+          <button className="button">edit</button>
         </Link>
         <button
+          className="button"
           onClick={() => {
             dispatch(delPost(post.id));
           }}

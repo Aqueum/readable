@@ -72,7 +72,12 @@ class EditPost extends Component {
           />
         </label>
         <br />
-        <input type="submit" value="Submit" onClick={this.handleSubmit} />
+        <input
+          type="submit"
+          value="Submit"
+          className="button"
+          onClick={this.handleSubmit}
+        />
       </form>
     );
   }

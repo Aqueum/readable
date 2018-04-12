@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ShowCats from '../components/Header/ShowCats';
-import ShowCat from '../components/Header/ShowCat';
+import { withRouter } from 'react-router';
 import { fetchCategories } from '../actions/category';
+import { selectCategory } from '../actions/select';
 
 /*
 I'm not massively happy with the efficiency of this:
 we're fetching the same categories every time this page is refreshed
+*/
+
+/*
+Also consider moving to Redirect - declarative navigation: https://tylermcginnis.com/react-router-programmatically-navigate/
 */
 
 class Header extends Component {
@@ -17,14 +21,43 @@ class Header extends Component {
   }
 
   render() {
-    const { show, categories, cat } = this.props;
+    const { dispatch, categories, selectCat } = this.props;
     return (
       <div>
-        {show === 'cats' ? (
-          <ShowCats cats={categories} />
-        ) : (
-          <ShowCat cat={cat} />
-        )}
+        <div>
+          <span>Posts about: </span>
+          {categories.map(
+            cat =>
+              cat.name === selectCat ? (
+                <span key={cat.name}>
+                  <button className="selected">{cat.name}</button>{' '}
+                </span>
+              ) : (
+                <span key={cat.name}>
+                  <button
+                    className="button"
+                    onClick={() => {
+                      dispatch(selectCategory(cat.name));
+                      this.props.history.push('/' + cat.name);
+                      window.location.reload(); // Mike Jackson: https://github.com/ReactTraining/react-router/issues/1982
+                    }}
+                  >
+                    {cat.name}
+                  </button>{' '}
+                </span>
+              )
+          )}
+          <button
+            className="button"
+            onClick={() => {
+              dispatch(selectCategory(''));
+              this.props.history.push('/');
+              window.location.reload();
+            }}
+          >
+            Everything
+          </button>{' '}
+        </div>
       </div>
     );
   }
@@ -33,14 +66,14 @@ class Header extends Component {
 Header.proptypes = {
   categories: PropTypes.array.isReqired,
   dispatch: PropTypes.func.isRequired,
-  show: PropTypes.string.isRequired,
-  cat: PropTypes.string
+  selectCat: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    categories: state.categories.items.categories || []
+    categories: state.categories.items.categories || [],
+    selectCat: state.selections.selectCat || []
   };
 }
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

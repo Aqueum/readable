@@ -44,7 +44,7 @@ class ListPosts extends Component {
           ))}
         </ul>
         <Link to="/newpost">
-          <button>New post</button>
+          <button className="button">New post</button>
         </Link>
       </div>
     );

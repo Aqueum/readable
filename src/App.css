@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+}
+
+.button {
+  background: #999;
+}
+.button:hover {
+  background: #bbb;
+}
+.selected {
+  background: #111;
+  color: #fff;
+}
