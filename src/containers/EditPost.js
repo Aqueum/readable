@@ -44,6 +44,7 @@ class EditPost extends Component {
       )
     );
     event.preventDefault();
+    this.props.history.push('/');
   }
 
   render() {

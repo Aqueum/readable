@@ -17,6 +17,7 @@ class NewPost extends Component {
             this.props.dispatch(
               addPost(title.value, body.value, author.value, category.value)
             );
+            this.props.history.push('/');
           }}
         >
           <p>
