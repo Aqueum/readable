@@ -15,7 +15,6 @@ http://localhost:3000/react/8xf0y6ziyjabvozdd253nd could be empty
 class Post extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    console.log(this.props.match.params.postid);
     dispatch(getPost(this.props.match.params.postid));
   }
 
