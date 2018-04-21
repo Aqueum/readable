@@ -5,6 +5,7 @@ import Header from '../containers/Header';
 import ShowPostDetail from '../components/Body/ShowPostDetail';
 import ShowCommentLine from '../components/Comment/ShowCommentLine';
 import { getPost } from '../actions/post';
+import { getPostComments } from '../actions/comment';
 
 /*
 I'm not massively happy with the efficiency of this:
@@ -17,6 +18,7 @@ class Post extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getPost(this.props.match.params.postid));
+    dispatch(getPostComments(this.props.match.params.postid));
   }
 
   render() {
