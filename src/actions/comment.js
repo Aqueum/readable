@@ -119,13 +119,13 @@ GET /posts/:id/comments
 */
 export function getPostComments(id) {
   return function(dispatch) {
-    dispatch(requestComments(post));
+    dispatch(requestComments(id));
     return fetch(`${api}/posts/${id}/comments`, { headers })
       .then(
         response => response.json(),
         error => console.log('An error occurred.', error)
       )
-      .then(json => dispatch(receiveComments(post, json)));
+      .then(json => dispatch(receiveComments(id, json)));
   };
 }
 
