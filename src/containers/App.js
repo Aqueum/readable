@@ -6,6 +6,8 @@ import NewPost from './NewPost';
 import NotFound from '../components/NotFound';
 import Post from './Post';
 import EditPost from './EditPost';
+import Comment from './Comment';
+import EditComment from './EditComment';
 
 class App extends Component {
   render() {
@@ -14,6 +16,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={FrontPage} />
           <Route exact path="/newpost" component={NewPost} />
+          <Route path="/comment/:commentid/edit" component={EditComment} />
+          <Route path="/comment/:commentid" component={Comment} />
           <Route path="/:category/:postid/edit" component={EditPost} />
           <Route path="/:category/:postid" component={Post} />
           <Route path="/:category" component={FrontPage} />
