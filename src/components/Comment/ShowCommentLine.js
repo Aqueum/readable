@@ -9,8 +9,7 @@ export default class ShowPostLine extends Component {
     const { comment } = this.props;
     return (
       <div>
-        {comment.title} by {comment.author} on{' '}
-        {timeConverter(comment.timestamp)}
+        {comment.author} on {timeConverter(comment.timestamp)}
         , score = {comment.voteScore}
         <ButtonBar post={comment} />
       </div>
