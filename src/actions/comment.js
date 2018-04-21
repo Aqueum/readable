@@ -224,12 +224,13 @@ export function delComment(id) {
 }
 
 /*
-PUT /posts/:id
+PUT /comments/:id
   USAGE:
-    Edit the details of an existing post
+    Edit the details of an existing comment
+
   PARAMS:
-    title - String
-    body - String
+    timestamp: timestamp. Get this however you want.
+    body: String
 */
 export function editComment(id, timestamp, body) {
   return function(dispatch) {
@@ -249,116 +250,3 @@ export function editComment(id, timestamp, body) {
       .then(json => dispatch(receiveEditComment(id, json)));
   };
 }
-
-
-/*******************************************************************************************
- * ************************************************************************************** */
-
-/*
-GET /posts/:id/comments
-  USAGE:
-    Get all the comments for a single post
-*/
-export const getPostComments = id =>
-  fetch(`${api}/posts/${id}/comments`, { headers })
-    .then(res => res.json())
-    .then(data => data);
-
-/*
-POST /comments
-  USAGE:
-    Add a comment to a post
-
-  PARAMS:
-    id: Any unique ID. As with posts, UUID is probably the best here.
-    timestamp: timestamp. Get this however you want.
-    body: String
-    author: String
-    parentId: Should match a post id in the database.
-*/
-export const addComment = (id, timestamp, body, author, parentId) =>
-  fetch(`${api}/comments`, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      id: id,
-      timestamp: timestamp,
-      body: body,
-      author: author,
-      parentID: parentId
-    })
-  })
-    .then(res => res.json())
-    .then(data => data);
-
-/*
-GET /comments/:id
-  USAGE:
-    Get the details for a single comment
-*/
-export const getComment = id =>
-  fetch(`${api}/comments/${id}`, { headers })
-    .then(res => res.json())
-    .then(data => data);
-
-/*
-POST /comments/:id
-  USAGE:
-    Used for voting on a comment.
-  PARAMS:
-    option - String: Either "upVote" or "downVote"
-*/
-export const voteComment = (id, vote) =>
-  fetch(`${api}/comments/${id}`, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ option: vote })
-  })
-    .then(res => res.json())
-    .then(data => data);
-
-/*
-PUT /comments/:id
-  USAGE:
-    Edit the details of an existing comment
-
-  PARAMS:
-    timestamp: timestamp. Get this however you want.
-    body: String
-*/
-export const editComment = (id, timestamp, body) =>
-  fetch(`${api}/comments/${id}`, {
-    method: 'PUT',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      timestamp: timestamp,
-      body: body
-    })
-  })
-    .then(res => res.json())
-    .then(data => data);
-
-/*
-DELETE /comments/:id
-  USAGE:
-    Sets a comment's deleted flag to 'true'
-*/
-export const delComment = id =>
-  fetch(`${api}/comments/${id}`, {
-    method: 'DELETE',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(res => res.json())
-    .then(data => data);
