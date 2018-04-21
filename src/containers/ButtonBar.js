@@ -35,7 +35,7 @@ class ButtonBar extends Component {
             <button className="button">edit</button>
           </Link>
         ) : (
-          <Link to={'/erm-this-one-needs-fixing'}>
+          <Link to={'/comment/' + item.id + '/edit'}>
             <button className="button">edit</button>
           </Link>
         )}
