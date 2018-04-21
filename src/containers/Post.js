@@ -26,13 +26,15 @@ class Post extends Component {
           <div>
             <Header show="cat" cat={this.props.match.params.category} />
             <ShowPostDetail post={post} />
-            {console.log(this.props.post)}
           </div>
         ) : (
           <div>
             <Header show="cat" cat={this.props.match.params.category} />
             <h1>404: Page Not Found</h1>
-            <p> post {this.props.match.params.postid} can't be found </p>
+            <p>
+              {' '}
+              a post with id: {this.props.match.params.postid} can't be found{' '}
+            </p>
             <a href="http://www.aqueum.com/contact/">
               let us know there's a problem
             </a>
