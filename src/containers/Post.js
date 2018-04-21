@@ -31,7 +31,7 @@ class Post extends Component {
             <ShowPostDetail post={post} />
             <ul>
               {comments.map(comment => (
-                <li key={comment.title}>
+                <li key={comment.id}>
                   <ShowCommentLine comment={comment} />
                 </li>
               ))}
