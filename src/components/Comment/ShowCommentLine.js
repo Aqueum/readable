@@ -6,7 +6,7 @@ import timeConverter from '../../utils/timeconverter';
 
 export default class ShowPostLine extends Component {
   render() {
-    const { post } = this.props;
+    const { comment } = this.props;
     return (
       <div>
         {comment.title} by {comment.author} on{' '}

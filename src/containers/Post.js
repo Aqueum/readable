@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../containers/Header';
 import ShowPostDetail from '../components/Body/ShowPostDetail';
+import ShowCommentLine from '../components/Comment/ShowCommentLine';
 import { getPost } from '../actions/post';
 
 /*
@@ -19,13 +20,20 @@ class Post extends Component {
   }
 
   render() {
-    const { post } = this.props;
+    const { post, comments } = this.props;
     return (
       <div>
         {post.id ? (
           <div>
             <Header show="cat" cat={this.props.match.params.category} />
             <ShowPostDetail post={post} />
+            <ul>
+              {comments.map(comment => (
+                <li key={comment.title}>
+                  <ShowCommentLine comment={comment} />
+                </li>
+              ))}
+            </ul>
           </div>
         ) : (
           <div>
@@ -47,12 +55,14 @@ class Post extends Component {
 
 Post.propTypes = {
   post: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  comments: PropTypes.array.isRequired
 };
 
 // inspired by https://stackoverflow.com/questions/34840994/javascript-redux-how-to-get-an-element-from-store-by-id
 const mapStateToProps = (state, ownProps) => ({
-  post: state.posts.item || {}
+  post: state.posts.item || {},
+  comments: state.comments.items || []
 });
 
 export default connect(mapStateToProps)(Post);
