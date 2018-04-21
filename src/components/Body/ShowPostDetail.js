@@ -12,7 +12,7 @@ export default class ShowPostDetail extends Component {
           <p> {post.body} </p>
           <p>by {post.author}</p>
           <p>score = {post.voteScore}</p>
-          <ButtonBar post={post} />
+          <ButtonBar type="post" item={post} />
           <p>{post.commentCount} comments:</p>
         </ul>
       </div>

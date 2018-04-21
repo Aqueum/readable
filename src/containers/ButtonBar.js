@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { votePost, delPost } from '../actions/post.js';
+import { voteComment, delComment } from '../actions/comment.js';
 
 class ButtonBar extends Component {
   render() {
-    const { post, dispatch } = this.props;
+    const { type, item, dispatch } = this.props;
+    console.log(item);
     return (
       <div>
         <button
           className="button"
           onClick={() => {
-            dispatch(votePost(post.id, 'upVote'));
+            type === 'post'
+              ? dispatch(votePost(item.id, 'upVote'))
+              : dispatch(voteComment(item.id, 'upVote'));
           }}
         >
           +
@@ -20,18 +24,28 @@ class ButtonBar extends Component {
         <button
           className="button"
           onClick={() => {
-            dispatch(votePost(post.id, 'downVote'));
+            type === 'post'
+              ? dispatch(votePost(item.id, 'downVote'))
+              : dispatch(voteComment(item.id, 'downVote'));
           }}
         >
           -
         </button>
-        <Link to={'/' + post.category + '/' + post.id + '/edit'}>
-          <button className="button">edit</button>
-        </Link>
+        {type === 'post' ? (
+          <Link to={'/' + item.category + '/' + item.id + '/edit'}>
+            <button className="button">edit</button>
+          </Link>
+        ) : (
+          <Link to={'/erm-this-one-needs-fixing'}>
+            <button className="button">edit</button>
+          </Link>
+        )}
         <button
           className="button"
           onClick={() => {
-            dispatch(delPost(post.id));
+            type === 'post'
+              ? dispatch(delPost(item.id))
+              : dispatch(delComment(item.id));
           }}
         >
           delete
@@ -42,7 +56,8 @@ class ButtonBar extends Component {
 }
 
 ButtonBar.propTypes = {
-  post: PropTypes.object.isRequired
+  type: PropTypes.string.isRequired,
+  item: PropTypes.object.isRequired
 };
 
 export default connect()(ButtonBar);

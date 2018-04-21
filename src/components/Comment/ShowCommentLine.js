@@ -11,7 +11,7 @@ export default class ShowPostLine extends Component {
       <div>
         {comment.author} on {timeConverter(comment.timestamp)}
         , score = {comment.voteScore}
-        <ButtonBar post={comment} />
+        <ButtonBar type="comment" item={comment} />
       </div>
     );
   }
