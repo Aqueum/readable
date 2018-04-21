@@ -8,7 +8,6 @@ import { voteComment, delComment } from '../actions/comment.js';
 class ButtonBar extends Component {
   render() {
     const { type, item, dispatch } = this.props;
-    console.log(item);
     return (
       <div>
         <button
