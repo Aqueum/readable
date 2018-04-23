@@ -59,9 +59,17 @@ ul {
   float: right;
   display: block;
   color: #999;
+  background: #444;
+  font-size: 70%;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+select {
+  color: #999;
+  background: #444;
+  border: none;
 }
 
 /* Main content */

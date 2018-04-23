@@ -70,7 +70,7 @@ class Header extends Component {
           )}
         </div>
         <div className="sorter">
-          Sort posts by:{' '}
+          Sort posts by
           <Dropdown
             options={['score', 'recency']}
             selected={selectSort}
