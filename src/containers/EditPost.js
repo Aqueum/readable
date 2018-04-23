@@ -55,26 +55,25 @@ class EditPost extends Component {
         <Header show="cat" cat={this.props.match.params.category} />
         <div className="main">
           <form>
-            <label>
-              Title:
+            <p className="row">
+              <label>Title:</label>
               <input
                 name="title"
                 type="text"
                 value={this.state.title}
                 onChange={this.handleInputChange}
               />
-            </label>
-            <br />
-            <label>
-              Body:
+            </p>
+            <p className="row">
+              <label>Body:</label>
               <input
                 name="body"
                 type="text"
                 value={this.state.body}
                 onChange={this.handleInputChange}
               />
-            </label>
-            <br />
+            </p>
+            <label />
             <input
               type="submit"
               value="Submit"
