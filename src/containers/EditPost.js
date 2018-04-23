@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getPost, editPost } from '../actions/post';
+import Header from '../containers/Header';
 
 class EditPost extends Component {
   constructor(props) {
@@ -50,36 +51,39 @@ class EditPost extends Component {
   render() {
     console.log(this.props);
     return (
-      // inspired by: https://reactjs.org/docs/forms.html
-      <div className="main">
-        <form>
-          <label>
-            Title:
+      <div>
+        <Header show="cat" cat={this.props.match.params.category} />
+        // inspired by: https://reactjs.org/docs/forms.html
+        <div className="main">
+          <form>
+            <label>
+              Title:
+              <input
+                name="title"
+                type="text"
+                value={this.state.title}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <br />
+            <label>
+              Body:
+              <input
+                name="body"
+                type="text"
+                value={this.state.body}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <br />
             <input
-              name="title"
-              type="text"
-              value={this.state.title}
-              onChange={this.handleInputChange}
+              type="submit"
+              value="Submit"
+              className="button"
+              onClick={this.handleSubmit}
             />
-          </label>
-          <br />
-          <label>
-            Body:
-            <input
-              name="body"
-              type="text"
-              value={this.state.body}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <br />
-          <input
-            type="submit"
-            value="Submit"
-            className="button"
-            onClick={this.handleSubmit}
-          />
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
