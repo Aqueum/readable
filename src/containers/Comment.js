@@ -46,7 +46,7 @@ Comment.propTypes = {
 
 // inspired by https://stackoverflow.com/questions/34840994/javascript-redux-how-to-get-an-element-from-store-by-id
 const mapStateToProps = (state, ownProps) => ({
-  comment: state.posts.item || {}
+  comment: state.comments.item || {}
 });
 
 export default connect(mapStateToProps)(Comment);
