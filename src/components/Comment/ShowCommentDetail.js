@@ -10,8 +10,7 @@ export default class ShowCommentDetail extends Component {
         <ul>
           <p> {comment.body} </p>
           <p>by {comment.author}</p>
-          <p>score = {comment.voteScore}</p>
-          <ButtonBar type="comment" item={comment} />
+          <ButtonBar type="comment" item={comment} score={comment.voteScore} />
         </ul>
       </div>
     );

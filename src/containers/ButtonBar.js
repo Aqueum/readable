@@ -7,9 +7,10 @@ import { voteComment, delComment } from '../actions/comment.js';
 
 class ButtonBar extends Component {
   render() {
-    const { type, item, dispatch } = this.props;
+    const { type, item, dispatch, score } = this.props;
     return (
       <div>
+        {score}
         <button
           className="button"
           onClick={() => {
@@ -57,7 +58,8 @@ class ButtonBar extends Component {
 
 ButtonBar.propTypes = {
   type: PropTypes.string.isRequired,
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
+  score: PropTypes.number.isRequired
 };
 
 export default connect()(ButtonBar);

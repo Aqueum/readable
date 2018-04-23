@@ -11,8 +11,8 @@ export default class ShowPostLine extends Component {
       <div>
         <Link to={post.category + '/' + post.id}>{post.title}</Link> by{' '}
         {post.author} on {timeConverter(post.timestamp)}
-        , {post.commentCount} comments, score = {post.voteScore}
-        <ButtonBar type="post" item={post} />
+        , {post.commentCount} comments
+        <ButtonBar type="post" item={post} score={post.voteScore} />
       </div>
     );
   }
