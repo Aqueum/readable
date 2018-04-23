@@ -40,7 +40,10 @@ class Post extends Component {
                   </li>
                 ))}
                 <li key="newcomment">
-                  <Link className="blacklink" to={'/newcomment/' + post.id}>
+                  <Link
+                    className="blacklink"
+                    to={'/' + post.category + '/' + post.id + '/newcomment'}
+                  >
                     <Icon icon={pen} /> Add new comment
                   </Link>
                 </li>

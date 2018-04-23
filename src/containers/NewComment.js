@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addComment } from '../actions/comment';
+import Header from '../containers/Header';
 
 class NewComment extends Component {
   render() {
@@ -9,31 +10,38 @@ class NewComment extends Component {
     let parentId = this.props.match.params.postid;
 
     return (
-      <div className="main">
-        <p>New comment on post {parentId}</p>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            if (!body.value.trim()) {
-              console.log('No body detected, so no comment added');
-              return;
-            }
-            this.props.dispatch(addComment(body.value, author.value, parentId));
-            this.props.history.push('/');
-          }}
-        >
-          <p>
-            Comment Author <input name="author" ref={node => (author = node)} />
-          </p>
-          <p>
-            Comment Body <textarea ref={node => (body = node)} />
-          </p>
-          <div>
-            <button className="button" type="submit">
-              Add Comment
-            </button>
-          </div>
-        </form>
+      <div>
+        <Header show="cat" cat={this.props.match.params.category} />
+        <div className="main">
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              if (!body.value.trim()) {
+                console.log('No body detected, so no comment added');
+                return;
+              }
+              this.props.dispatch(
+                addComment(body.value, author.value, parentId)
+              );
+              this.props.history.push('/');
+            }}
+          >
+            <p className="row">
+              <label>Comment Author</label>{' '}
+              <input name="author" ref={node => (author = node)} />
+            </p>
+            <p className="row">
+              <label>Comment Body</label>{' '}
+              <textarea ref={node => (body = node)} />
+            </p>
+            <p className="row">
+              <label />
+              <button className="button" type="submit">
+                Add Comment
+              </button>
+            </p>
+          </form>
+        </div>
       </div>
     );
   }
