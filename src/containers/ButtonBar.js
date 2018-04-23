@@ -11,7 +11,7 @@ class ButtonBar extends Component {
   render() {
     const { type, item, dispatch, score } = this.props;
     return (
-      <div>
+      <div className="buttonBar">
         <Icon
           icon={smile}
           alt="upVote"

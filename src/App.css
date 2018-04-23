@@ -77,6 +77,10 @@ select {
   margin-top: 70px; /* Add a top margin to avoid content overlay */
 }
 
+.buttonBar {
+  padding: 4px 0px;
+}
+
 .blacklink {
   color: #111;
 }
