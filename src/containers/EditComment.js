@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getComment, editComment } from '../actions/comment';
+import Header from '../containers/Header';
 
 class EditComment extends Component {
   constructor(props) {
@@ -45,25 +46,28 @@ class EditComment extends Component {
   render() {
     return (
       // inspired by: https://reactjs.org/docs/forms.html
-      <div className="main">
-        <form>
-          <label>
-            Body:
+      <div>
+        <Header show="cat" cat={this.props.match.params.category} />
+        <div className="main">
+          <form>
+            <label>
+              Body:
+              <input
+                name="body"
+                type="text"
+                value={this.state.body}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <br />
             <input
-              name="body"
-              type="text"
-              value={this.state.body}
-              onChange={this.handleInputChange}
+              type="submit"
+              value="Submit"
+              className="button"
+              onClick={this.handleSubmit}
             />
-          </label>
-          <br />
-          <input
-            type="submit"
-            value="Submit"
-            className="button"
-            onClick={this.handleSubmit}
-          />
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
