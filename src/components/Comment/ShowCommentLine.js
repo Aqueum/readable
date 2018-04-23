@@ -9,8 +9,8 @@ export default class ShowPostLine extends Component {
     const { comment } = this.props;
     return (
       <div>
-        <Link to={'/comment/' + comment.id}>{comment.author}</Link> on{' '}
-        {timeConverter(comment.timestamp)}
+        <Link to={'/comment/' + comment.id}>{comment.author}</Link>
+        <p className="byLine">on {timeConverter(comment.timestamp)}</p>
         <ButtonBar type="comment" item={comment} score={comment.voteScore} />
       </div>
     );

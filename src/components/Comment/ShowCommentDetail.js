@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ButtonBar from '../../containers/ButtonBar';
+import timeConverter from '../../utils/timeconverter';
 
 export default class ShowCommentDetail extends Component {
   render() {
@@ -9,7 +10,9 @@ export default class ShowCommentDetail extends Component {
       <div className="main">
         <ul>
           <p> {comment.body} </p>
-          <p>by {comment.author}</p>
+          <p className="byLine">
+            by {comment.author} on {timeConverter(comment.timestamp)}
+          </p>
           <ButtonBar type="comment" item={comment} score={comment.voteScore} />
         </ul>
       </div>
