@@ -15,11 +15,10 @@ class NewComment extends Component {
           onSubmit={e => {
             e.preventDefault();
             if (!body.value.trim()) {
+              console.log('No body detected, so no comment added');
               return;
             }
-            this.props.dispatch(
-              addComment(body.value, author.value, parentId.value)
-            );
+            this.props.dispatch(addComment(body.value, author.value, parentId));
             this.props.history.push('/');
           }}
         >
