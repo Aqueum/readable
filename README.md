@@ -15,7 +15,7 @@ It allows users to read and create posts within predefined topics, upvoting, dow
 1.  fork, clone or download the project from [here](https://github.com/Aqueum/readable)
 2.  navigate to the created readable folder
 3.  `npm init`
-4.  `npm install --save react react-dom redux redux-thunk redux-logger react-redux react-router react-router-dom prop-types uuid`
+4.  `npm install --save react react-dom redux redux-thunk redux-logger react-redux react-router react-router-dom prop-types uuid react-icons-kit`
 5.  `npm start`
 6.  `cd api-server`
 7.  `node start`
