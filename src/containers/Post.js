@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Header from '../containers/Header';
 import ShowPostDetail from '../components/Body/ShowPostDetail';
 import ShowCommentLine from '../components/Comment/ShowCommentLine';
@@ -36,6 +37,9 @@ class Post extends Component {
                 </li>
               ))}
             </ul>
+            <Link to={'/newcomment/' + post.id}>
+              <button className="button">New comment</button>
+            </Link>
           </div>
         ) : (
           <div>
