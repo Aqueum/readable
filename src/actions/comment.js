@@ -141,9 +141,9 @@ POST /comments
     author: String
     parentId: Should match a post id in the database.
 */
-export function addComment(id, timestamp, body, author, parentId) {
+export function addComment(body, author, parentId) {
   return function(dispatch) {
-    dispatch(requestAddComment(id, timestamp, body, author, parentId));
+    dispatch(requestAddComment(body, author, parentId));
     return fetch(`${api}/comments`, {
       method: 'POST',
       headers: headers,
