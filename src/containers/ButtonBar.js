@@ -49,6 +49,7 @@ class ButtonBar extends Component {
         >
           delete
         </button>
+        <p />
       </div>
     );
   }
