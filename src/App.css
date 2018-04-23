@@ -101,3 +101,17 @@ ul {
   font-size: 80%;
   color: #333;
 }
+
+form {
+  display: table;
+  padding: 0px 36px;
+}
+.row {
+  display: table-row;
+}
+label {
+  display: table-cell;
+}
+input {
+  display: table-cell;
+}

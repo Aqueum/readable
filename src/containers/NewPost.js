@@ -30,17 +30,19 @@ class NewPost extends Component {
               this.props.history.push('/');
             }}
           >
-            <p>
-              Post Title <input name="title" ref={node => (title = node)} />
+            <p className="row">
+              <label>Post Title</label>
+              <input name="title" ref={node => (title = node)} />
             </p>
-            <p>
-              Post Author <input name="author" ref={node => (author = node)} />
+            <p className="row">
+              <label>Post Author </label>{' '}
+              <input name="author" ref={node => (author = node)} />
             </p>
-            <p>
-              Post Body <textarea ref={node => (body = node)} />
+            <p className="row">
+              <label>Post Body</label> <textarea ref={node => (body = node)} />
             </p>
-            <label>
-              Category:
+            <p className="row">
+              <label>Category: </label>
               <select
                 defaultValue={this.props.match.params.category}
                 ref={node => (category = node)}
@@ -51,12 +53,11 @@ class NewPost extends Component {
                   </option>
                 ))}
               </select>
-            </label>
-            <div>
-              <button className="button" type="submit">
-                Add Post
-              </button>
-            </div>
+            </p>
+            <p className="row">
+              <label />
+              <button type="submit">Add Post</button>
+            </p>
           </form>
         </div>
       </div>
