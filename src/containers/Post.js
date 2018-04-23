@@ -7,6 +7,8 @@ import ShowPostDetail from '../components/Body/ShowPostDetail';
 import ShowCommentLine from '../components/Comment/ShowCommentLine';
 import { getPost } from '../actions/post';
 import { getPostComments } from '../actions/comment';
+import Icon from 'react-icons-kit';
+import { pen } from 'react-icons-kit/icomoon';
 
 /*
 I'm not massively happy with the efficiency of this:
@@ -37,8 +39,8 @@ class Post extends Component {
                 </li>
               ))}
               <li key="newcomment">
-                <Link to={'/newcomment/' + post.id}>
-                  <button className="button">Add new comment</button>
+                <Link className="blacklink" to={'/newcomment/' + post.id}>
+                  <Icon icon={pen} /> Add new comment
                 </Link>
               </li>
             </ul>
