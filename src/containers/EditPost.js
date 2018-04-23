@@ -49,11 +49,10 @@ class EditPost extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // inspired by: https://reactjs.org/docs/forms.html
     return (
       <div>
         <Header show="cat" cat={this.props.match.params.category} />
-        // inspired by: https://reactjs.org/docs/forms.html
         <div className="main">
           <form>
             <label>
