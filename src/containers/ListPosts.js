@@ -50,10 +50,12 @@ class ListPosts extends Component {
               <ShowPostLine post={post} />
             </li>
           ))}
+          <li key="newpost">
+            <Link to="/newpost">
+              <button className="button">Add new post</button>
+            </Link>
+          </li>
         </ul>
-        <Link to="/newpost">
-          <button className="button">New post</button>
-        </Link>
       </div>
     );
   }

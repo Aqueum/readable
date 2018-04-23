@@ -36,10 +36,12 @@ class Post extends Component {
                   <ShowCommentLine comment={comment} />
                 </li>
               ))}
+              <li key="newcomment">
+                <Link to={'/newcomment/' + post.id}>
+                  <button className="button">Add new comment</button>
+                </Link>
+              </li>
             </ul>
-            <Link to={'/newcomment/' + post.id}>
-              <button className="button">New comment</button>
-            </Link>
           </div>
         ) : (
           <div>
