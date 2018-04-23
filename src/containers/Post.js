@@ -32,18 +32,20 @@ class Post extends Component {
           <div>
             <Header show="cat" cat={this.props.match.params.category} />
             <ShowPostDetail post={post} />
-            <ul>
-              {comments.map(comment => (
-                <li key={comment.id}>
-                  <ShowCommentLine comment={comment} />
+            <div className="comments">
+              <ul>
+                {comments.map(comment => (
+                  <li key={comment.id}>
+                    <ShowCommentLine comment={comment} />
+                  </li>
+                ))}
+                <li key="newcomment">
+                  <Link className="blacklink" to={'/newcomment/' + post.id}>
+                    <Icon icon={pen} /> Add new comment
+                  </Link>
                 </li>
-              ))}
-              <li key="newcomment">
-                <Link className="blacklink" to={'/newcomment/' + post.id}>
-                  <Icon icon={pen} /> Add new comment
-                </Link>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
         ) : (
           <div>

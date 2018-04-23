@@ -15,7 +15,8 @@ export default class ShowPostDetail extends Component {
             by {post.author} on {timeConverter(post.timestamp)}
           </p>
           <ButtonBar type="post" item={post} score={post.voteScore} />
-          <p>{post.commentCount} comments:</p>
+          <hr />
+          <p className="comments">{post.commentCount} comments:</p>
         </ul>
       </div>
     );
