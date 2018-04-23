@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addPost } from '../actions/post';
 import { fetchCategories } from '../actions/category';
+import Header from '../containers/Header';
 
 class NewPost extends Component {
   componentDidMount() {
@@ -14,47 +15,50 @@ class NewPost extends Component {
     let title, body, author, category;
 
     return (
-      <div className="main">
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            if (!title.value.trim()) {
-              return;
-            }
-            this.props.dispatch(
-              addPost(title.value, body.value, author.value, category.value)
-            );
-            this.props.history.push('/');
-          }}
-        >
-          <p>
-            Post Title <input name="title" ref={node => (title = node)} />
-          </p>
-          <p>
-            Post Author <input name="author" ref={node => (author = node)} />
-          </p>
-          <p>
-            Post Body <textarea ref={node => (body = node)} />
-          </p>
-          <label>
-            Category:
-            <select
-              defaultValue={this.props.match.params.category}
-              ref={node => (category = node)}
-            >
-              {this.props.categories.map(option => (
-                <option value={option.name} key={option.name}>
-                  {option.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <div>
-            <button className="button" type="submit">
-              Add Post
-            </button>
-          </div>
-        </form>
+      <div>
+        <Header show="cat" cat={this.props.match.params.category} />
+        <div className="main">
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              if (!title.value.trim()) {
+                return;
+              }
+              this.props.dispatch(
+                addPost(title.value, body.value, author.value, category.value)
+              );
+              this.props.history.push('/');
+            }}
+          >
+            <p>
+              Post Title <input name="title" ref={node => (title = node)} />
+            </p>
+            <p>
+              Post Author <input name="author" ref={node => (author = node)} />
+            </p>
+            <p>
+              Post Body <textarea ref={node => (body = node)} />
+            </p>
+            <label>
+              Category:
+              <select
+                defaultValue={this.props.match.params.category}
+                ref={node => (category = node)}
+              >
+                {this.props.categories.map(option => (
+                  <option value={option.name} key={option.name}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div>
+              <button className="button" type="submit">
+                Add Post
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
