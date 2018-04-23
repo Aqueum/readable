@@ -72,6 +72,7 @@ class Header extends Component {
         <div className="sorter">
           Sort posts by
           <Dropdown
+            look="sorterSelect"
             options={['score', 'recency']}
             selected={selectSort}
             onChange={this.handleChange}
