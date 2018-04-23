@@ -16,10 +16,10 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={FrontPage} />
-          <Route exact path="/newpost" component={NewPost} />
-          <Route exact path="/newcomment/:postid" component={NewComment} />
+          <Route path="/newcomment/:postid" component={NewComment} />
           <Route path="/comment/:commentid/edit" component={EditComment} />
           <Route path="/comment/:commentid" component={Comment} />
+          <Route path="/:category/newpost" component={NewPost} />
           <Route path="/:category/:postid/edit" component={EditPost} />
           <Route path="/:category/:postid" component={Post} />
           <Route path="/:category" component={FrontPage} />

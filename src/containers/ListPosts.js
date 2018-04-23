@@ -22,7 +22,7 @@ class ListPosts extends Component {
   }
 
   render() {
-    const { sortValue, posts } = this.props;
+    const { sortValue, posts, category } = this.props;
     const sortedPosts = [] // inspired by https://stackoverflow.com/questions/43572436/sort-an-array-of-objects-in-react-and-render-them/43572944
       .concat(posts)
       .sort((a, b) => a[sortValue] < b[sortValue]);
@@ -35,7 +35,10 @@ class ListPosts extends Component {
             </li>
           ))}
           <li key="newpost">
-            <Link className="blacklink" to="/newpost">
+            <Link
+              className="blacklink"
+              to={!category ? 'udacity/newpost' : category + '/newpost'}
+            >
               <Icon icon={pen} /> Add new post
             </Link>
           </li>

@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { addPost } from '../actions/post';
+import { fetchCategories } from '../actions/category';
 
 class NewPost extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchCategories());
+  }
+
   render() {
     let title, body, author, category;
 
@@ -31,10 +38,15 @@ class NewPost extends Component {
           </p>
           <label>
             Category:
-            <select defaultValue="udacity" ref={node => (category = node)}>
-              <option value="react">react</option>
-              <option value="redux">redux</option>
-              <option value="udacity">udacity</option>
+            <select
+              defaultValue={this.props.match.params.category}
+              ref={node => (category = node)}
+            >
+              {this.props.categories.map(option => (
+                <option value={option.name} key={option.name}>
+                  {option.name}
+                </option>
+              ))}
             </select>
           </label>
           <div>
@@ -48,7 +60,17 @@ class NewPost extends Component {
   }
 }
 
-export default connect()(NewPost);
+NewPost.propTypes = {
+  match: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    categories: state.categories.items.categories || []
+  };
+}
+
+export default connect(mapStateToProps)(NewPost);
 
 /*const NewPost = ({ dispatch }) => {
   let id, timestamp, title, body, author, category; // was input;
