@@ -232,9 +232,9 @@ PUT /comments/:id
     timestamp: timestamp. Get this however you want.
     body: String
 */
-export function editComment(id, timestamp, body) {
+export function editComment(id, body) {
   return function(dispatch) {
-    dispatch(requestEditComment(id, timestamp, body));
+    dispatch(requestEditComment(id, body));
     return fetch(`${api}/comments/${id}`, {
       method: 'PUT',
       headers,
