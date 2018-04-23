@@ -24,7 +24,7 @@ class Header extends Component {
     const { dispatch, categories, selectCat } = this.props;
     return (
       <div className="navbar">
-        <span className="logo">readAble: </span>
+        <span className="logo">readAble:</span>
         <div>
           {categories.map(
             cat =>
