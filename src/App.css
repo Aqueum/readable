@@ -84,3 +84,8 @@ select {
 .score {
   vertical-align: top;
 }
+
+.byLine {
+  font-size: 70%;
+  color: #777;
+}
