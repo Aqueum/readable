@@ -76,3 +76,7 @@ select {
 .main {
   margin-top: 70px; /* Add a top margin to avoid content overlay */
 }
+
+.blacklink {
+  color: #111;
+}
