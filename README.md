@@ -27,6 +27,7 @@ It allows users to read and create posts within predefined topics, upvoting, dow
 
 1.  Make the app at least half way pretty
 2.  Segregate component-containers more strictly into presentational components and containers
+3.  Use react-router to set default category for a post to be the category the new post was called from, or [something..?] if called from root
 
 ## I'm not happy with
 
