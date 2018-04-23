@@ -54,7 +54,17 @@ ul {
   color: #444;
 }
 
+/* Links inside the navbar */
+.sorter {
+  float: right;
+  display: block;
+  color: #999;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 /* Main content */
 .main {
-  margin-top: 50px; /* Add a top margin to avoid content overlay */
+  margin-top: 70px; /* Add a top margin to avoid content overlay */
 }

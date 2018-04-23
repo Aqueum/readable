@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { fetchCategories } from '../actions/category';
 import { selectCategory } from '../actions/select';
+import { selectSort } from '../actions/select';
+import Dropdown from '../components/dropdown';
 
 /*
 I'm not massively happy with the efficiency of this:
@@ -15,13 +17,22 @@ Also consider moving to Redirect - declarative navigation: https://tylermcginnis
 */
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchCategories());
   }
 
+  handleChange(nextSort) {
+    this.props.dispatch(selectSort(nextSort));
+  }
+
   render() {
-    const { dispatch, categories, selectCat } = this.props;
+    const { dispatch, categories, selectCat, selectSort } = this.props;
     return (
       <div className="navbar">
         <span className="logo">readAble:</span>
@@ -58,6 +69,14 @@ class Header extends Component {
             </a>
           )}
         </div>
+        <div className="sorter">
+          Sort posts by:{' '}
+          <Dropdown
+            options={['score', 'recency']}
+            selected={selectSort}
+            onChange={this.handleChange}
+          />
+        </div>
       </div>
     );
   }
@@ -66,13 +85,15 @@ class Header extends Component {
 Header.proptypes = {
   categories: PropTypes.array.isReqired,
   dispatch: PropTypes.func.isRequired,
-  selectCat: PropTypes.string.isRequired
+  selectCat: PropTypes.string.isRequired,
+  selectSort: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
   return {
     categories: state.categories.items.categories || [],
-    selectCat: state.selections.selectCat || []
+    selectCat: state.selections.selectCat || [],
+    selectSort: state.selections.selectSort
   };
 }
 

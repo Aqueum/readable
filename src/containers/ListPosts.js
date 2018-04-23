@@ -4,16 +4,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ShowPostLine from '../components/Body/ShowPostLine';
 import { fetchPosts } from '../actions/post';
-import { selectSort } from '../actions/select';
-
-import Dropdown from '../components/dropdown';
 
 class ListPosts extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
   componentDidMount() {
     const { dispatch, category } = this.props;
     dispatch(fetchPosts(category));
@@ -27,23 +19,13 @@ class ListPosts extends Component {
     }
   }
 
-  handleChange(nextSort) {
-    this.props.dispatch(selectSort(nextSort));
-  }
-
   render() {
-    const { selectSort, sortValue, posts } = this.props;
+    const { sortValue, posts } = this.props;
     const sortedPosts = [] // inspired by https://stackoverflow.com/questions/43572436/sort-an-array-of-objects-in-react-and-render-them/43572944
       .concat(posts)
       .sort((a, b) => a[sortValue] < b[sortValue]);
     return (
       <div className="main">
-        Sort by:
-        <Dropdown
-          options={['score', 'recency']}
-          selected={selectSort}
-          onChange={this.handleChange}
-        />
         <ul>
           {sortedPosts.map(post => (
             <li key={post.title}>
@@ -70,7 +52,6 @@ ListPosts.proptypes = {
 function mapStateToProps(state) {
   return {
     posts: state.posts.items || [],
-    selectSort: state.selections.selectSort,
     sortValue: state.selections.sortValue,
     selectCat: state.selections.selectCat
   };
