@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ShowPostLine from '../components/Body/ShowPostLine';
 import { fetchPosts } from '../actions/post';
+import Icon from 'react-icons-kit';
+import { pen } from 'react-icons-kit/icomoon';
 
 class ListPosts extends Component {
   componentDidMount() {
@@ -33,8 +35,8 @@ class ListPosts extends Component {
             </li>
           ))}
           <li key="newpost">
-            <Link to="/newpost">
-              <button className="button">Add new post</button>
+            <Link className="blacklink" to="/newpost">
+              <Icon icon={pen} /> Add new post
             </Link>
           </li>
         </ul>

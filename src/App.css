@@ -83,6 +83,9 @@ select {
 
 .blacklink {
   color: #111;
+  font-size: 70%;
+  text-decoration: none;
+  vertical-align: top;
 }
 
 .score {
