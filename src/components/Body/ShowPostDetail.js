@@ -6,7 +6,7 @@ export default class ShowPostDetail extends Component {
   render() {
     const { post } = this.props;
     return (
-      <div>
+      <div className="main">
         <ul>
           <h2>{post.title}</h2>
           <p> {post.body} </p>

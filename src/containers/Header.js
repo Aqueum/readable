@@ -23,41 +23,39 @@ class Header extends Component {
   render() {
     const { dispatch, categories, selectCat } = this.props;
     return (
-      <div>
+      <div className="navbar">
+        <span>readAble: </span>
         <div>
-          <span>Posts about: </span>
           {categories.map(
             cat =>
               cat.name === selectCat ? (
-                <span key={cat.name}>
-                  <button className="selected">{cat.name}</button>{' '}
-                </span>
+                <div key={cat.name}>
+                  <a className="selected">{cat.name}</a>{' '}
+                </div>
               ) : (
-                <span key={cat.name}>
-                  <button
-                    className="button"
+                <div key={cat.name}>
+                  <a
                     onClick={() => {
                       dispatch(selectCategory(cat.name));
                       this.props.history.push('/' + cat.name);
                     }}
                   >
                     {cat.name}
-                  </button>{' '}
-                </span>
+                  </a>{' '}
+                </div>
               )
           )}
           {selectCat === '' ? (
-            <button className="selected">Everything</button>
+            <a className="selected">Everything</a>
           ) : (
-            <button
-              className="button"
+            <a
               onClick={() => {
                 dispatch(selectCategory(''));
                 this.props.history.push('/');
               }}
             >
               Everything
-            </button>
+            </a>
           )}
         </div>
       </div>

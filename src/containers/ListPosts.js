@@ -37,7 +37,7 @@ class ListPosts extends Component {
       .concat(posts)
       .sort((a, b) => a[sortValue] < b[sortValue]);
     return (
-      <div>
+      <div className="main">
         Sort by:
         <Dropdown
           options={['score', 'recency']}

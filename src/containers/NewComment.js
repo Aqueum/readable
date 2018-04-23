@@ -9,7 +9,7 @@ class NewComment extends Component {
     let parentId = this.props.match.params.postid;
 
     return (
-      <div>
+      <div className="main">
         <p>New comment on post {parentId}</p>
         <form
           onSubmit={e => {

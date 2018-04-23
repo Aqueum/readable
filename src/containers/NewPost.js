@@ -7,7 +7,7 @@ class NewPost extends Component {
     let title, body, author, category;
 
     return (
-      <div>
+      <div className="main">
         <form
           onSubmit={e => {
             e.preventDefault();

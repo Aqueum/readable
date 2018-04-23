@@ -51,34 +51,36 @@ class EditPost extends Component {
     console.log(this.props);
     return (
       // inspired by: https://reactjs.org/docs/forms.html
-      <form>
-        <label>
-          Title:
+      <div className="main">
+        <form>
+          <label>
+            Title:
+            <input
+              name="title"
+              type="text"
+              value={this.state.title}
+              onChange={this.handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Body:
+            <input
+              name="body"
+              type="text"
+              value={this.state.body}
+              onChange={this.handleInputChange}
+            />
+          </label>
+          <br />
           <input
-            name="title"
-            type="text"
-            value={this.state.title}
-            onChange={this.handleInputChange}
+            type="submit"
+            value="Submit"
+            className="button"
+            onClick={this.handleSubmit}
           />
-        </label>
-        <br />
-        <label>
-          Body:
-          <input
-            name="body"
-            type="text"
-            value={this.state.body}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <br />
-        <input
-          type="submit"
-          value="Submit"
-          className="button"
-          onClick={this.handleSubmit}
-        />
-      </form>
+        </form>
+      </div>
     );
   }
 }
