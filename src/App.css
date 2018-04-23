@@ -80,3 +80,7 @@ select {
 .blacklink {
   color: #111;
 }
+
+.score {
+  vertical-align: top;
+}

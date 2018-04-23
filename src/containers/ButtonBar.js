@@ -21,7 +21,7 @@ class ButtonBar extends Component {
               : dispatch(voteComment(item.id, 'upVote'));
           }}
         />
-        {score}
+        <span className="score">{score}</span>
         <Icon
           icon={sad}
           alt="downVote"
