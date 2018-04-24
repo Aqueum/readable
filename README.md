@@ -34,7 +34,7 @@ It allows users to read and create posts within predefined topics, upvoting, dow
 
 ## I'm not happy with
 
-1.  I hate the number of api calls that this app makes. For example the categories never change, there is no way to change the categories when using the app, yet on almost every screen refresh it fetches the categories from the server in order to render them in the header. Without this however, deep links wouldn't work...
+1.  I hate the number of api calls that this app makes. Without these however, deep links wouldn't work...
 2.  It feels like I have used some fudges to get state when it changes, that I thought redux was supposed to look after itself, for example my use of `componentWillReceiveProps` in `ListPosts.js`
 
 ## Review suggestions
