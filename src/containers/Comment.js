@@ -46,8 +46,7 @@ Comment.propTypes = {
   match: PropTypes.object.isRequired
 };
 
-// inspired by https://stackoverflow.com/questions/34840994/javascript-redux-how-to-get-an-element-from-store-by-id
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   comment: state.comments.item || {}
 });
 
