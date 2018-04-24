@@ -12,12 +12,7 @@ import Dropdown from '../components/dropdown';
 // on the right it has a sort by dropdown
 
 /*
-I'm not massively happy with the efficiency of this:
-we're fetching the same categories every time this page is refreshed
-*/
-
-/*
-Also consider moving to Redirect - declarative navigation: https://tylermcginnis.com/react-router-programmatically-navigate/
+Todo: consider moving to Redirect - declarative navigation: https://tylermcginnis.com/react-router-programmatically-navigate/
 */
 
 class Header extends Component {

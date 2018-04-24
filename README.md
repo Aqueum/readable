@@ -27,10 +27,12 @@ It allows users to read and create posts within predefined topics, upvoting, dow
 
 1.  Make the app ~~at least half way~~ pretty
 2.  ~~Use react-router to set default category for a post to be the category the new post was called from, or [something..?] if called from root~~
-3.  Have deletions from detail pages redirect to the list rather than giving a 404
-4.  Segregate component-containers more strictly into presentational components and containers
-5.  Check 404's cover all instances (currently seeing /randomword as a call for all posts of category randomword) and utilise same 404 with detail props
-6.  Move header to App.js so it is only called once..?
+3.  Utilise same 404 with detail props from all missing items
+4.  Have deletions from detail pages redirect to the list rather than giving a 404
+5.  Check 404's cover all instances (currently seeing /randomword as a call for all posts of category randomword)
+6.  Segregate component-containers more strictly into presentational components and containers
+7.  ~~Move header to App.js so it is only called once~~
+8.  Use Redirect declaritive navigation rather than history push
 
 ## I'm not happy with
 
