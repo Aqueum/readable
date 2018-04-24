@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Header from './Header';
 import FrontPage from './FrontPage';
 import NewPost from './NewPost';
 import NewComment from './NewComment';
@@ -9,14 +10,15 @@ import EditPost from './EditPost';
 import Comment from './Comment';
 import EditComment from './EditComment';
 
-// The main App page simply switches between all available pages based on the URL
+// The main App page simply calls the header then
+// switches between all available pages based on the URL
 // using React Router DOM
 
 class App extends Component {
   render() {
     return (
       <div>
-        <p> Header goes here </p>
+        <Header />
         <Switch>
           <Route exact path="/" component={FrontPage} />
           <Route path="/comment/:commentid/edit" component={EditComment} />
