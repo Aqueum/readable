@@ -8,6 +8,7 @@ import { getPost } from '../actions/post';
 import { getPostComments } from '../actions/comment';
 import Icon from 'react-icons-kit';
 import { pen } from 'react-icons-kit/icomoon';
+import NotFound from '../components/NotFound';
 
 // A container that gets the relevant post
 // calls Header & sends the post to ShowPostDetail for display
@@ -54,18 +55,13 @@ class Post extends Component {
             </div>
           </div>
         ) : (
-          <div>
-            <div className="main">
-              <h1>404: Page Not Found</h1>
-              <p>
-                {' '}
-                a post with id: {this.props.match.params.postid} can't be found{' '}
-              </p>
-              <a href="http://www.aqueum.com/contact/">
-                let us know there's a problem
-              </a>
-            </div>
-          </div>
+          <NotFound
+            message={
+              'a post with ID of ' +
+              this.props.match.params.postid +
+              " can't be found"
+            }
+          />
         )}
       </div>
     );

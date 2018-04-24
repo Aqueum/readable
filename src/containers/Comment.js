@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ShowCommentDetail from '../components/Comment/ShowCommentDetail';
 import { getComment } from '../actions/comment';
+import NotFound from '../components/NotFound';
 
 // A container that gets the relevant comment
 // calls Header & sends the comment to ShowCommentDetail for display
@@ -23,19 +24,13 @@ class Comment extends Component {
             <ShowCommentDetail comment={comment} />
           </div>
         ) : (
-          <div>
-            <div className="main">
-              <h1>404: Page Not Found</h1>
-              <p>
-                {' '}
-                a comment with id: {this.props.match.params.commentid} can't be
-                found{' '}
-              </p>
-              <a href="http://www.aqueum.com/contact/">
-                let us know there's a problem
-              </a>
-            </div>
-          </div>
+          <NotFound
+            message={
+              'a comment with ID of ' +
+              this.props.match.params.commentid +
+              " can't be found"
+            }
+          />
         )}
       </div>
     );
