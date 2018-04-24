@@ -30,6 +30,7 @@ It allows users to read and create posts within predefined topics, upvoting, dow
 3.  Have deletions from detail pages redirect to the list rather than giving a 404
 4.  Segregate component-containers more strictly into presentational components and containers
 5.  Check 404's cover all instances (currently seeing /randomword as a call for all posts of category randomword) and utilise same 404 with detail props
+6.  Move header to App.js so it is only called once..?
 
 ## I'm not happy with
 
