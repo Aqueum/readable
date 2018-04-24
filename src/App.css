@@ -77,6 +77,10 @@ ul {
   margin-top: 70px; /* Add a top margin to avoid content overlay */
 }
 
+.pad {
+  padding: 0px 36px;
+}
+
 .buttonBar {
   padding: 4px 0px;
 }
