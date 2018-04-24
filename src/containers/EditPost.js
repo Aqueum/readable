@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { getPost, editPost } from '../actions/post';
 import Header from '../containers/Header';
 
+// A form, populated with the current post
+// that allows any user to edit the post
+
 class EditPost extends Component {
   constructor(props) {
     super(props);

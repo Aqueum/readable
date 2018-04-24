@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// A presentational component that displays a dropdown list when given:
+// look = the class of the list (specifically sorterSelect makes it match the header)
+// options = the items to chose from
+// selected = the initially selected option
+// onChange = a function that defines what to do when a new item is selected
+
 class Dropdown extends Component {
   render() {
     const { options, selected, onChange, look } = this.props;

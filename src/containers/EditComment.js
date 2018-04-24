@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { getComment, editComment } from '../actions/comment';
 import Header from '../containers/Header';
 
+// A form, populated with the current comment's body,
+// that allows any user to edit that body
+
 class EditComment extends Component {
   constructor(props) {
     super(props);

@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import ButtonBar from '../../containers/ButtonBar';
 import timeConverter from '../../utils/timeconverter';
 
+// Presentational component that displays a summary line for a post
+// & links to the detail page (is using react-router-dom allowed in presentational components?)
+// the post is passed to it in its props hence it doesn't interact with state
+
 export default class ShowPostLine extends Component {
   render() {
     const { post } = this.props;

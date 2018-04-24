@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { addComment } from '../actions/comment';
 import Header from '../containers/Header';
 
+// A form to write a new comment
+
 class NewComment extends Component {
   render() {
     let body, author;

@@ -3,6 +3,11 @@ import { api, headers } from '../utils/api.js';
 // action structure modified from https://redux.js.org/advanced/async-actions
 // import fetch from 'cross-fetch'; - presumed not neccesary
 
+// Actions handling elements of the 'categories' state
+// Actions (objects dispatched to the redux store,
+// subsequently handled by reducers where they are
+// combined with current state to give next state)
+
 export const REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
 function requestCategories() {
   return {
@@ -33,6 +38,8 @@ export function selectCategory(category) {
     category
   };
 }
+
+// API call actions - with documentation from the API
 
 /*
 GET /categories

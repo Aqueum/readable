@@ -1,3 +1,6 @@
+// Selection reducers - fuunctions that combine the existing state
+// with the action to produce the next state for the selections state
+
 import { SELECT_CATEGORY, SELECT_SORT } from '../actions/select';
 
 export function selections(

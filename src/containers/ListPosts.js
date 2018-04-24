@@ -7,6 +7,9 @@ import { fetchPosts } from '../actions/post';
 import Icon from 'react-icons-kit';
 import { pen } from 'react-icons-kit/icomoon';
 
+// Sorts and lists the posts for the given category
+// and gives an icon to add a new post
+
 class ListPosts extends Component {
   componentDidMount() {
     const { dispatch, category } = this.props;

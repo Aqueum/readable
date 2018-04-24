@@ -9,6 +9,9 @@ import EditPost from './EditPost';
 import Comment from './Comment';
 import EditComment from './EditComment';
 
+// The main App page simply switches between all available pages based on the URL
+// using React Router DOM
+
 class App extends Component {
   render() {
     return (

@@ -10,6 +10,11 @@ import { getPostComments } from '../actions/comment';
 import Icon from 'react-icons-kit';
 import { pen } from 'react-icons-kit/icomoon';
 
+// A container that gets the relevant post
+// calls Header & sends the post to ShowPostDetail for display
+// then lists the comments for the post
+// or gives a 404 if the comment isn't found
+
 /*
 I'm not massively happy with the efficiency of this:
 we're taking something that may already be in state in posts.items

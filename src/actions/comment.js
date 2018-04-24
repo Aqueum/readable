@@ -1,6 +1,11 @@
 import { api, headers } from '../utils/api.js';
 import uuid4 from 'uuid/v4';
 
+// Actions handling elements of the 'comments' state
+// Actions (objects dispatched to the redux store,
+// subsequently handled by reducers where they are
+// combined with current state to give next state)
+
 export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
 function requestComments(post) {
   return {
@@ -111,6 +116,8 @@ function receiveEditComment(id, json) {
     receivedAt: Date.now()
   };
 }
+
+// API call actions - with documentation from the API
 
 /*
 GET /posts/:id/comments

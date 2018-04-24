@@ -1,3 +1,8 @@
+// Actions handling elements of the 'selections' state
+// Actions (objects dispatched to the redux store,
+// subsequently handled by reducers where they are
+// combined with current state to give next state)
+
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 export function selectCategory(category) {
   return {

@@ -4,6 +4,11 @@ import uuid4 from 'uuid/v4';
 // action structure modified from https://redux.js.org/advanced/async-actions
 // import fetch from 'cross-fetch'; - presumed not neccesary
 
+// Actions handling elements of the 'posts' state
+// Actions (objects dispatched to the redux store,
+// subsequently handled by reducers where they are
+// combined with current state to give next state)
+
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 function requestPosts(category) {
   return {
@@ -123,6 +128,8 @@ function receiveEditPost(id, json) {
     receivedAt: Date.now()
   };
 }
+
+// API call actions - with documentation from the API
 
 /*
 GET /posts

@@ -1,3 +1,6 @@
+// Comment reducers - fuunctions that combine the existing state
+// with the action to produce the next state for the categories state
+
 import {
   REQUEST_COMMENTS,
   RECEIVE_COMMENTS,

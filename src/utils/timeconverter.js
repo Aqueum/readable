@@ -1,3 +1,4 @@
+// a function to make timestamps human readable
 // inspired by https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
 
 export default function timeConverter(timestamp) {

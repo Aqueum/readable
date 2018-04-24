@@ -7,6 +7,10 @@ import { selectCategory } from '../actions/select';
 import { selectSort } from '../actions/select';
 import Dropdown from '../components/dropdown';
 
+// A header bar that shows our logo, buttons for the available categories,
+// with the selected category highlighted, and a button to show all categories
+// on the right it has a sort by dropdown
+
 /*
 I'm not massively happy with the efficiency of this:
 we're fetching the same categories every time this page is refreshed

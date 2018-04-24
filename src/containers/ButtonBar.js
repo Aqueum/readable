@@ -7,6 +7,12 @@ import { voteComment, delComment } from '../actions/comment.js';
 import Icon from 'react-icons-kit';
 import { smile, sad, pencil, bin } from 'react-icons-kit/icomoon';
 
+// A bar of buttons with the current score, that can be used to
+// upvote, downvote, edit & delete
+// item (post or comment) it is called with
+// type is whether the calling item is a post or comment
+// score of the current item is displayed
+
 class ButtonBar extends Component {
   render() {
     const { type, item, dispatch, score } = this.props;

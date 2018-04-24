@@ -5,6 +5,10 @@ import Header from '../containers/Header';
 import ShowCommentDetail from '../components/Comment/ShowCommentDetail';
 import { getComment } from '../actions/comment';
 
+// A container that gets the relevant comment
+// calls Header & sends the comment to ShowCommentDetail for display
+// or gives a 404 if the comment isn't found
+
 class Comment extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
@@ -46,7 +50,7 @@ Comment.propTypes = {
   match: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   comment: state.comments.item || {}
 });
 

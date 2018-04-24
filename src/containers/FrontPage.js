@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import ListPosts from './ListPosts';
 
+// The front page lists all posts for the category it is given via its URL
+
 class FrontPage extends Component {
   render() {
     return (

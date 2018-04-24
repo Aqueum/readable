@@ -1,3 +1,6 @@
+// Category reducers - fuunctions that combine the existing state
+// with the action to produce the next state for the categories state
+
 // modified from https://redux.js.org/advanced/async-actions
 
 import {

@@ -5,6 +5,8 @@ import { addPost } from '../actions/post';
 import { fetchCategories } from '../actions/category';
 import Header from '../containers/Header';
 
+// A form to write a new post
+
 class NewPost extends Component {
   componentDidMount() {
     const { dispatch } = this.props;

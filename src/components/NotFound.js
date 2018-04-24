@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// A generic 404 not found page
+
 class NotFound extends Component {
   render() {
     return (
