@@ -227,7 +227,7 @@ export function votePost(id, vote) {
 }
 */
 
-/* ************************ fix this V
+/*
 GET /posts/:id
   USAGE:
     Get the details of a single post

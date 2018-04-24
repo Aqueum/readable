@@ -7,8 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './containers/App';
 import './App.css';
 import registerServiceWorker from './registerServiceWorker';
-//import { fetchPosts, addPost } from './actions/post';
-// import { /*selectCategory,*/ fetchCategories } from './actions/category';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 
@@ -20,23 +18,6 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware))
 );
-
-//store.dispatch(fetchCategories());
-
-/*store.dispatch(selectCategory('react'));
-store.dispatch(fetchCategories());
-store.dispatch(fetchPosts('')).then(() => console.log(store.getState()));
-store.dispatch(
-  addPost(
-    'testID02',
-    1467166873944,
-    'Lost?',
-    'Where did the redux post go?',
-    'Anton',
-    'udacity'
-  )
-);
-*/
 
 ReactDOM.render(
   <Provider store={store}>

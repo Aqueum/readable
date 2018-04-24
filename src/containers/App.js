@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import FrontPage from './FrontPage';
 import NewPost from './NewPost';
 import NewComment from './NewComment';
-//import ListRoute from './ListRoute';
 import NotFound from '../components/NotFound';
 import Post from './Post';
 import EditPost from './EditPost';
@@ -30,7 +29,4 @@ class App extends Component {
   }
 }
 
-/*
-<Route exact path="/list" render={() => <List categories="" />} />
-*/
 export default App;

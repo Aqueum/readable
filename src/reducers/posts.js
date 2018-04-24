@@ -108,7 +108,7 @@ export function posts(
 }
 
 /* decided not to segregate state by category, to avoid duplicate posts in state
-when called with & without category.
+when called with & without category.  Previously:
 function postsByCategory(state = {}, action) {
   switch (action.type) {
     case INVALIDATE_CATEGORY:
