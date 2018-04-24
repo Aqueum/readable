@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Header from '../containers/Header';
 import ShowPostDetail from '../components/Body/ShowPostDetail';
 import ShowCommentLine from '../components/Comment/ShowCommentLine';
 import { getPost } from '../actions/post';
@@ -35,7 +34,6 @@ class Post extends Component {
       <div>
         {post.id ? (
           <div>
-            <Header show="cat" cat={this.props.match.params.category} />
             <ShowPostDetail post={post} />
             <div className="comments">
               <ul>
@@ -57,7 +55,6 @@ class Post extends Component {
           </div>
         ) : (
           <div>
-            <Header show="cat" cat={this.props.match.params.category} />
             <div className="main">
               <h1>404: Page Not Found</h1>
               <p>

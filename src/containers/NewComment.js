@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addComment } from '../actions/comment';
-import Header from '../containers/Header';
 
 // A form to write a new comment
 
@@ -13,7 +12,6 @@ class NewComment extends Component {
 
     return (
       <div>
-        <Header show="cat" cat={this.props.match.params.category} />
         <div className="main">
           <form
             onSubmit={e => {

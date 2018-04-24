@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getComment, editComment } from '../actions/comment';
-import Header from '../containers/Header';
 
 // A form, populated with the current comment's body,
 // that allows any user to edit that body
@@ -50,7 +49,6 @@ class EditComment extends Component {
     return (
       // inspired by: https://reactjs.org/docs/forms.html
       <div>
-        <Header show="cat" cat={this.props.match.params.category} />
         <div className="main">
           <form>
             <label>

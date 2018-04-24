@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addPost } from '../actions/post';
 import { fetchCategories } from '../actions/category';
-import Header from '../containers/Header';
 
 // A form to write a new post
 
@@ -18,7 +17,6 @@ class NewPost extends Component {
 
     return (
       <div>
-        <Header show="cat" cat={this.props.match.params.category} />
         <div className="main">
           <form
             onSubmit={e => {

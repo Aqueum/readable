@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getPost, editPost } from '../actions/post';
-import Header from '../containers/Header';
 
 // A form, populated with the current post
 // that allows any user to edit the post
@@ -55,7 +54,6 @@ class EditPost extends Component {
     // inspired by: https://reactjs.org/docs/forms.html
     return (
       <div>
-        <Header show="cat" cat={this.props.match.params.category} />
         <div className="main">
           <form>
             <p className="row">

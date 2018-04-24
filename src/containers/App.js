@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <p> Header goes here </p>
         <Switch>
           <Route exact path="/" component={FrontPage} />
           <Route path="/comment/:commentid/edit" component={EditComment} />

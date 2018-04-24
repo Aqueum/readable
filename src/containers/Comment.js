@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Header from '../containers/Header';
 import ShowCommentDetail from '../components/Comment/ShowCommentDetail';
 import { getComment } from '../actions/comment';
 
@@ -21,12 +20,10 @@ class Comment extends Component {
       <div>
         {comment.id ? (
           <div>
-            <Header cat="" />
             <ShowCommentDetail comment={comment} />
           </div>
         ) : (
           <div>
-            <Header cat="" />
             <div className="main">
               <h1>404: Page Not Found</h1>
               <p>
