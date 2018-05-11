@@ -57,88 +57,90 @@ Until next time :wave:
 2.  _Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state. Form inputs and controlled components may have some state handled by the component._
     Fantastic utilization of actions and reducers to map your data to your application components :muscle:
 
-It becomes even more critical with larger applications to keep your data and get / post methods separate and organized. Keep up the great work!
+    It becomes even more critical with larger applications to keep your data and get / post methods separate and organized. Keep up the great work!
 
-Take a look at your code review for some pointers on how to improve your redux management and file structure.
+    Take a look at your code review for some pointers on how to improve your redux management and file structure.
 
 3.  _Updates are triggered by dispatching action creators to reducers. Reducers and actions are written properly and correctly return updated state to the store._
     Nice work adding actions to your first react-redux application!
 
-I left you some comments on how to further improve your action creators within your code review :smile:
+    I left you some comments on how to further improve your action creators within your code review :smile:
 
 4.  _Listed posts are displayed..._
     Great work adding the required functionality :muscle:
 
-I encourage you revise your interface and add some more visually appealing elements, as the react library is utilized primarily to build user interfaces.
+    I encourage you revise your interface and add some more visually appealing elements, as the react library is utilized primarily to build user interfaces.
 
-It's highly recommended to use this opportunity to implement a solid user interface to improve user experience :muscle:
+    It's highly recommended to use this opportunity to implement a solid user interface to improve user experience :muscle:
 
-Have you considered using ui libraries with your applications? Take a look at a personal favorite of mine here: http://www.material-ui.com/#/
+    Have you considered using ui libraries with your applications? Take a look at a personal favorite of mine here: http://www.material-ui.com/#/
 
 5.  _Application has a form for creating a new post. Submitting the form properly adds the post to the correct category._
     Great work adding the required functionality, and validation for your forms :muscle:
 
-However I suggest you add some error messages to improve user experience
+    However I suggest you add some error messages to improve user experience
 
-Want to learn more about form validation and optimal form development practices?
+    Want to learn more about form validation and optimal form development practices?
 
-Have a look at our course on the subject here: https://www.udacity.com/course/building-high-conversion-web-forms--ud890
+    Have a look at our course on the subject here: https://www.udacity.com/course/building-high-conversion-web-forms--ud890
 
-5.  _A mechanism for deleting posts and comments exists. Clicking the button/link correctly removes the post/comment from list view and makes post inaccessible at its URL. When a user goes to a deleted post’s URL, a 404 page is displayed._
+6.  _A mechanism for deleting posts and comments exists. Clicking the button/link correctly removes the post/comment from list view and makes post inaccessible at its URL. When a user goes to a deleted post’s URL, a 404 page is displayed._
     Fantastic work :muscle:
     [Here is an article](https://medium.com/@rose.espiritu1/creating-a-custom-404-notfound-page-with-react-routers-3cc9106de84) you may find helpful on building 404 pages with react-router-dom :muscle:
-6.  _Posts.js line 28_ There is a cleaner way to add singular actions to your container, with ES6 syntax.
+7.  _Posts.js line 28_
+    There is a cleaner way to add singular actions to your container, with ES6 syntax.For singular actions, you can do the following to completely avoid utilizing the mapDispatchToProps or dispatch methods:
 
-For singular actions, you can do the following to completely avoid utilizing the mapDispatchToProps or dispatch methods:
+    export default connect(mapStateToProps, {action1, action2})(Component);
 
-export default connect(mapStateToProps, {action1, action2})(Component);
-This adds the action creators to your this.props object without the need to utilize the mapDispatchToProps or the dispatch method :muscle:
+    This adds the action creators to your this.props object without the need to utilize the mapDispatchToProps or the dispatch method :muscle:
 
-7.  _Posts.js line 78_ I encourage you to improve your mapStateToProps function utilization by utilizing some deconstruction syntax.
+8.  _Posts.js line 78_
+    I encourage you to improve your mapStateToProps function utilization by utilizing some deconstruction syntax.
 
-Passing the state, and any other argument is optional, as you can pass individual reducers into your state using the following practices:
+    Passing the state, and any other argument is optional, as you can pass individual reducers into your state using the following practices:
 
-function mapStateToProps({ reducer1, reducer2 }){
+    function mapStateToProps({ reducer1, reducer2 }){
 
     return { reducer1, reducer2 };
 
-}
-However in order to actually achieve this, the assigned data from your reducer must match your component assignment names :squirrel:
+    }
+    However in order to actually achieve this, the assigned data from your reducer must match your component assignment names :squirrel:
 
-Utilizing ES6 in this situation is helpful since it helps you shorten your code :muscle:
+    Utilizing ES6 in this situation is helpful since it helps you shorten your code :muscle:
 
-8.  _README.md line 78_ Great work writing clear, and concise instruction to install and utilize your application :+1:
+9.  _README.md line 78_
+    Great work writing clear, and concise instruction to install and utilize your application :+1:
+    Want to learn more about writing great README.md files? Have a look at our course on the subject here: https://www.udacity.com/course/writing-readmes--ud777
 
-Want to learn more about writing great README.md files? Have a look at our course on the subject here: https://www.udacity.com/course/writing-readmes--ud777
+10. _reducers/index.js line 10_
+    Fantastic work so far!
+    It's recommended to split each reducer into its own file, instead of utilizing one huge file to manage all your reducers. This keeps your code base cleaner, and allows other engineers to better analyze your application.
+    Here is a sample file structure you may want to consider:
+    reducers/index.js (where you have your combine reducers, and import other reducer files)
+    reducers/reducer1(where you have one reducer that gets exported into reducers/index.js)
+    reducers/reducer2(same as reducer 1)
+    This improves your file structure making it easier to utilize and modify your application :muscle:
 
-9.  _reducers/index.js line 10_ Fantastic work so far!
+11. _ShowPostDetail.js line 29_
+    Great use of the prop-types library :tada:
 
-It's recommended to split each reducer into its own file, instead of utilizing one huge file to manage all your reducers. This keeps your code base cleaner, and allows other engineers to better analyze your application.
+    This and defaultProps becomes very useful as you start building larger application. Keep these practices in mind moving forward!
 
-Here is a sample file structure you may want to consider:
+12. _actions/select.js line 6_
+    Great work adding constants to handle your action types!
 
-reducers/index.js (where you have your combine reducers, and import other reducer files)
-reducers/reducer1(where you have one reducer that gets exported into reducers/index.js)
-reducers/reducer2(same as reducer 1)
-This improves your file structure making it easier to utilize and modify your application :muscle:
+    It's recommended to refactor your action.type constants into a different file, which you can then import into your action creators.
 
-10. _ShowPostDetail.js line 29_ Great use of the prop-types library :tada:
+    Try moving these constants into actions/types.js :smile:
 
-This and defaultProps becomes very useful as you start building larger application. Keep these practices in mind moving forward!
+    Here’s a fantastic article explaining why this is important: https://stackoverflow.com/questions/34965856/what-is-the-point-of-the-constants-in-redux
 
-11. _actions/select.js line 6_ Great work adding constants to handle your action types!
+13. _actions/post.js line 13_
+    Nice work splitting up your actions into logical files :muscle:
 
-It's recommended to refactor your action.type constants into a different file, which you can then import into your action creators.
+    This allows for easier maintenance and updates of your application :book:
 
-Try moving these constants into actions/types.js :smile:
-
-Here’s a fantastic article explaining why this is important: https://stackoverflow.com/questions/34965856/what-is-the-point-of-the-constants-in-redux
-
-12. _actions/post.js line 13_ Nice work splitting up your actions into logical files :muscle:
-
-This allows for easier maintenance and updates of your application :book:
-
-Have a look at this article to stay up to date on the recommended react-redux directory structure: https://marmelab.com/blog/2015/12/17/react-directory-structure.html
+    Have a look at this article to stay up to date on the recommended react-redux directory structure: https://marmelab.com/blog/2015/12/17/react-directory-structure.html
 
 # Files
 
