@@ -17,7 +17,7 @@ import {
   RECEIVE_DELETE_POST,
   REQUEST_EDIT_POST,
   RECEIVE_EDIT_POST
-} from '../actions/post';
+} from '../actions/types';
 
 export function posts(
   state = {

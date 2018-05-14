@@ -7,7 +7,7 @@ import {
   INVALIDATE_CATEGORIES,
   REQUEST_CATEGORIES,
   RECEIVE_CATEGORIES
-} from '../actions/category';
+} from '../actions/types';
 
 export function categories(
   state = {

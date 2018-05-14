@@ -1,4 +1,10 @@
 import { api, headers } from '../utils/api.js';
+import {
+  REQUEST_CATEGORIES,
+  RECEIVE_CATEGORIES,
+  INVALIDATE_CATEGORIES,
+  SELECT_CATEGORY
+} from './types.js';
 
 // action structure modified from https://redux.js.org/advanced/async-actions
 // import fetch from 'cross-fetch'; - presumed not neccesary
@@ -8,14 +14,12 @@ import { api, headers } from '../utils/api.js';
 // subsequently handled by reducers where they are
 // combined with current state to give next state)
 
-export const REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
 function requestCategories() {
   return {
     type: REQUEST_CATEGORIES
   };
 }
 
-export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
 function receiveCategories(json) {
   return {
     type: RECEIVE_CATEGORIES,
@@ -24,14 +28,12 @@ function receiveCategories(json) {
   };
 }
 
-export const INVALIDATE_CATEGORIES = 'INVALIDATE_CATEGORIES';
 export function invalidateCategories() {
   return {
     type: INVALIDATE_CATEGORIES
   };
 }
 
-export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 export function selectCategory(category) {
   return {
     type: SELECT_CATEGORY,

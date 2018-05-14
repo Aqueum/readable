@@ -1,5 +1,20 @@
 import { api, headers } from '../utils/api.js';
 import uuid4 from 'uuid/v4';
+import {
+  REQUEST_POSTS,
+  RECEIVE_POSTS,
+  REQUEST_ADD_POST,
+  RECEIVE_ADD_POST,
+  INVALIDATE_CATEGORY,
+  REQUEST_VOTE,
+  RECEIVE_VOTE,
+  REQUEST_POST,
+  RECEIVE_POST,
+  REQUEST_DELETE_POST,
+  RECEIVE_DELETE_POST,
+  REQUEST_EDIT_POST,
+  RECEIVE_EDIT_POST
+} from './types';
 
 // action structure modified from https://redux.js.org/advanced/async-actions
 // import fetch from 'cross-fetch'; - presumed not neccesary
@@ -9,7 +24,6 @@ import uuid4 from 'uuid/v4';
 // subsequently handled by reducers where they are
 // combined with current state to give next state)
 
-export const REQUEST_POSTS = 'REQUEST_POSTS';
 function requestPosts(category) {
   return {
     type: REQUEST_POSTS,
@@ -17,7 +31,6 @@ function requestPosts(category) {
   };
 }
 
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 function receivePosts(category, json) {
   return {
     type: RECEIVE_POSTS,
@@ -27,7 +40,6 @@ function receivePosts(category, json) {
   };
 }
 
-export const REQUEST_ADD_POST = 'REQUEST_ADD_POST';
 function requestAddPost(id, timestamp, title, body, author, category) {
   return {
     type: REQUEST_ADD_POST,
@@ -40,7 +52,6 @@ function requestAddPost(id, timestamp, title, body, author, category) {
   };
 }
 
-export const RECEIVE_ADD_POST = 'RECEIVE_ADD_POST';
 function receiveAddPost(json) {
   return {
     type: RECEIVE_ADD_POST,
@@ -49,7 +60,7 @@ function receiveAddPost(json) {
   };
 }
 
-export const INVALIDATE_CATEGORY = 'INVALIDATE_CATEGORY'; // refresh category
+// refresh category
 export function invalidateCategory(category) {
   return {
     type: INVALIDATE_CATEGORY,
@@ -57,7 +68,6 @@ export function invalidateCategory(category) {
   };
 }
 
-export const REQUEST_VOTE = 'REQUEST_VOTE';
 export function requestVote(id, vote) {
   return {
     type: REQUEST_VOTE,
@@ -66,7 +76,6 @@ export function requestVote(id, vote) {
   };
 }
 
-export const RECEIVE_VOTE = 'RECEIVE_VOTE';
 export function receiveVote(json) {
   return {
     type: RECEIVE_VOTE,
@@ -74,7 +83,6 @@ export function receiveVote(json) {
   };
 }
 
-export const REQUEST_POST = 'REQUEST_POST';
 function requestPost(id) {
   return {
     type: REQUEST_POST,
@@ -82,7 +90,6 @@ function requestPost(id) {
   };
 }
 
-export const RECEIVE_POST = 'RECEIVE_POST';
 function receivePost(id, json) {
   return {
     type: RECEIVE_POST,
@@ -92,7 +99,6 @@ function receivePost(id, json) {
   };
 }
 
-export const REQUEST_DELETE_POST = 'REQUEST_DELETE_POST';
 function requestDeletePost(id) {
   return {
     type: REQUEST_DELETE_POST,
@@ -100,7 +106,6 @@ function requestDeletePost(id) {
   };
 }
 
-export const RECEIVE_DELETE_POST = 'RECEIVE_DELETE_POST';
 function receiveDeletePost(id, json) {
   return {
     type: RECEIVE_DELETE_POST,
@@ -109,7 +114,6 @@ function receiveDeletePost(id, json) {
   };
 }
 
-export const REQUEST_EDIT_POST = 'REQUEST_EDIT_POST';
 function requestEditPost(id, title, body) {
   return {
     type: REQUEST_EDIT_POST,
@@ -119,7 +123,6 @@ function requestEditPost(id, title, body) {
   };
 }
 
-export const RECEIVE_EDIT_POST = 'RECEIVE_EDIT_POST';
 function receiveEditPost(id, json) {
   return {
     type: RECEIVE_EDIT_POST,

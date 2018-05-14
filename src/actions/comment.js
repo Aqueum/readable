@@ -1,12 +1,25 @@
 import { api, headers } from '../utils/api.js';
 import uuid4 from 'uuid/v4';
+import {
+  REQUEST_COMMENTS,
+  RECEIVE_COMMENTS,
+  REQUEST_ADD_COMMENT,
+  RECEIVE_ADD_COMMENT,
+  REQUEST_VOTE_COMMENT,
+  RECEIVE_VOTE_COMMENT,
+  REQUEST_COMMENT,
+  RECEIVE_COMMENT,
+  REQUEST_DELETE_COMMENT,
+  RECEIVE_DELETE_COMMENT,
+  REQUEST_EDIT_COMMENT,
+  RECEIVE_EDIT_COMMENT
+} from './types';
 
 // Actions handling elements of the 'comments' state
 // Actions (objects dispatched to the redux store,
 // subsequently handled by reducers where they are
 // combined with current state to give next state)
 
-export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
 function requestComments(post) {
   return {
     type: REQUEST_COMMENTS,
@@ -14,7 +27,6 @@ function requestComments(post) {
   };
 }
 
-export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 function receiveComments(post, json) {
   return {
     type: RECEIVE_COMMENTS,
@@ -24,7 +36,6 @@ function receiveComments(post, json) {
   };
 }
 
-export const REQUEST_ADD_COMMENT = 'REQUEST_ADD_COMMENT ';
 function requestAddComment(id, timestamp, body, author, parentId) {
   return {
     type: REQUEST_ADD_COMMENT,
@@ -36,7 +47,6 @@ function requestAddComment(id, timestamp, body, author, parentId) {
   };
 }
 
-export const RECEIVE_ADD_COMMENT = 'RECEIVE_ADD_COMMENT';
 function receiveAddComment(json) {
   return {
     type: RECEIVE_ADD_COMMENT,
@@ -45,7 +55,6 @@ function receiveAddComment(json) {
   };
 }
 
-export const REQUEST_VOTE_COMMENT = 'REQUEST_VOTE_COMMENT';
 export function requestVoteComment(id, vote) {
   return {
     type: REQUEST_VOTE_COMMENT,
@@ -54,7 +63,6 @@ export function requestVoteComment(id, vote) {
   };
 }
 
-export const RECEIVE_VOTE_COMMENT = 'RECEIVE_VOTE_COMMENT';
 export function receiveVoteComment(json) {
   return {
     type: RECEIVE_VOTE_COMMENT,
@@ -62,7 +70,6 @@ export function receiveVoteComment(json) {
   };
 }
 
-export const REQUEST_COMMENT = 'REQUEST_COMMENT';
 function requestComment(id) {
   return {
     type: REQUEST_COMMENT,
@@ -70,7 +77,6 @@ function requestComment(id) {
   };
 }
 
-export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 function receiveComment(id, json) {
   return {
     type: RECEIVE_COMMENT,
@@ -80,7 +86,6 @@ function receiveComment(id, json) {
   };
 }
 
-export const REQUEST_DELETE_COMMENT = 'REQUEST_DELETE_COMMENT';
 function requestDeleteComment(id) {
   return {
     type: REQUEST_DELETE_COMMENT,
@@ -88,7 +93,6 @@ function requestDeleteComment(id) {
   };
 }
 
-export const RECEIVE_DELETE_COMMENT = 'RECEIVE_DELETE_COMMENT';
 function receiveDeleteComment(id, json) {
   return {
     type: RECEIVE_DELETE_COMMENT,
@@ -97,7 +101,6 @@ function receiveDeleteComment(id, json) {
   };
 }
 
-export const REQUEST_EDIT_COMMENT = 'REQUEST_EDIT_COMMENT';
 function requestEditComment(id, timestamp, body) {
   return {
     type: REQUEST_EDIT_COMMENT,
@@ -107,7 +110,6 @@ function requestEditComment(id, timestamp, body) {
   };
 }
 
-export const RECEIVE_EDIT_COMMENT = 'RECEIVE_EDIT_COMMENT';
 function receiveEditComment(id, json) {
   return {
     type: RECEIVE_EDIT_COMMENT,

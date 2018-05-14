@@ -24,7 +24,7 @@ http://localhost:3000/react/8xf0y6ziyjabvozdd253nd could be empty
 
 class Post extends Component {
   componentDidMount() {
-    const { dispatch, getPost, getPostComments } = this.props;
+    const { getPost, getPostComments } = this.props;
     getPost(this.props.match.params.postid); // note instead of dispatch(getPost(...), we're specifying getPost in the connect statement at the end)
     getPostComments(this.props.match.params.postid);
   }
@@ -75,9 +75,9 @@ Post.propTypes = {
 };
 
 // inspired by https://stackoverflow.com/questions/34840994/javascript-redux-how-to-get-an-element-from-store-by-id
-const mapStateToProps = state => ({
-  post: state.posts.item || {},
-  comments: state.comments.items || []
+const mapStateToProps = ({ posts, comments }) => ({
+  post: posts.item || {},
+  comments: comments.items || []
 });
 
 export default connect(mapStateToProps, { getPost, getPostComments })(Post);

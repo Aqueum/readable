@@ -98,7 +98,7 @@ Until next time :wave:
 
     This adds the action creators to your this.props object without the need to utilize the mapDispatchToProps or the dispatch method :muscle:
 
-8.  _Posts.js line 78_
+8.  :x: _Posts.js line 78_
     I encourage you to improve your mapStateToProps function utilization by utilizing some deconstruction syntax.
 
     Passing the state, and any other argument is optional, as you can pass individual reducers into your state using the following practices:
@@ -112,11 +112,11 @@ Until next time :wave:
 
     Utilizing ES6 in this situation is helpful since it helps you shorten your code :muscle:
 
-9.  _README.md line 78_
+9.  :x: _README.md line 78_
     Great work writing clear, and concise instruction to install and utilize your application :+1:
     Want to learn more about writing great README.md files? Have a look at our course on the subject here: https://www.udacity.com/course/writing-readmes--ud777
 
-10. _reducers/index.js line 10_
+10. :rage: _(hadn't I already done this?) reducers/index.js line 10_
     Fantastic work so far!
     It's recommended to split each reducer into its own file, instead of utilizing one huge file to manage all your reducers. This keeps your code base cleaner, and allows other engineers to better analyze your application.
     Here is a sample file structure you may want to consider:
@@ -125,12 +125,12 @@ Until next time :wave:
     reducers/reducer2(same as reducer 1)
     This improves your file structure making it easier to utilize and modify your application :muscle:
 
-11. _ShowPostDetail.js line 29_
+11. :x: _ShowPostDetail.js line 29_
     Great use of the prop-types library :tada:
 
     This and defaultProps becomes very useful as you start building larger application. Keep these practices in mind moving forward!
 
-12. _actions/select.js line 6_
+12. :x: _actions/select.js line 6_
     Great work adding constants to handle your action types!
 
     It's recommended to refactor your action.type constants into a different file, which you can then import into your action creators.

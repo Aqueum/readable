@@ -14,7 +14,7 @@ import {
   RECEIVE_DELETE_COMMENT,
   REQUEST_EDIT_COMMENT,
   RECEIVE_EDIT_COMMENT
-} from '../actions/comment';
+} from '../actions/types';
 
 export function comments(
   state = {
