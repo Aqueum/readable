@@ -22,6 +22,7 @@ It allows users to read and create posts within predefined topics, upvoting, dow
 8.  then play with webpage that should open at http://localhost:3000/
 
 # Known issues
+
 :x: done/resolved
 
 :o: attempted & abandoned
@@ -90,7 +91,7 @@ Until next time :wave:
 6.  _A mechanism for deleting posts and comments exists. Clicking the button/link correctly removes the post/comment from list view and makes post inaccessible at its URL. When a user goes to a deleted post’s URL, a 404 page is displayed._
     Fantastic work :muscle:
     [Here is an article](https://medium.com/@rose.espiritu1/creating-a-custom-404-notfound-page-with-react-routers-3cc9106de84) you may find helpful on building 404 pages with react-router-dom :muscle:
-7.  _Posts.js line 28_
+7.  :x: _Posts.js line 28_
     There is a cleaner way to add singular actions to your container, with ES6 syntax.For singular actions, you can do the following to completely avoid utilizing the mapDispatchToProps or dispatch methods:
 
     export default connect(mapStateToProps, {action1, action2})(Component);
