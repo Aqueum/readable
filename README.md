@@ -22,16 +22,19 @@ It allows users to read and create posts within predefined topics, upvoting, dow
 8.  then play with webpage that should open at http://localhost:3000/
 
 # Known issues
+:x: done/resolved
+
+:o: attempted & abandoned
 
 ## To do
 
 1.  Make the app ~~at least half way~~ pretty
-2.  ~~Use react-router to set default category for a post to be the category the new post was called from, or [something..?] if called from root~~
-3.  ~~Utilise same 404 with detail props from all missing items~~
+2.  :x: ~~Use react-router to set default category for a post to be the category the new post was called from, or [something..?] if called from root~~
+3.  :x: ~~Utilise same 404 with detail props from all missing items~~
 4.  Have deletions from detail pages redirect to the list rather than giving a 404
 5.  Check 404's cover all instances (currently seeing /randomword as a call for all posts of category randomword)
 6.  Segregate component-containers more strictly into presentational components and containers
-7.  ~~Move header to App.js so it is only called once~~
+7.  :x: ~~Move header to App.js so it is only called once~~
 8.  Use Redirect declaritive navigation rather than history push
 
 ## I'm not happy with
@@ -51,7 +54,7 @@ We look forward to receiving your future project submissions. Keep learning, and
 
 Until next time :wave:
 
-1.  _A README is included with the project. The README includes clear instructions for installing and launching the project._
+1.  :o: _A README is included with the project. The README includes clear instructions for installing and launching the project._
     Great work :book:
     I encourage you to revise your application documentation with the tips I left you in your code review :squirrel:
 2.  _Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state. Form inputs and controlled components may have some state handled by the component._
